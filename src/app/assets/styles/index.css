@@ -82,7 +82,8 @@
     }
 
     .container {
-        margin-top: 100px;
+        background-color: white;
+        margin-top: 90px;
         padding: 30px 10px 10px 20px;
     }
 

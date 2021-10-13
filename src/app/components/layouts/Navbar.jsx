@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav className="top-0 fixed z-50 w-full bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-                    <div className="logo">
+                    <div className="logo" onClick={history.push(URL_HOME)}>
                         <i>GunDam Shop</i>
                     </div>
 

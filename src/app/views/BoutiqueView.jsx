@@ -2,8 +2,8 @@ import React from 'react'
 
 const BoutiqueView = () => {
     return (
-        <div>
-            <p className='text-primary-500 font-extrabold'>
+        <div className="container">
+            <p>
                Boutique 
             </p>
         </div>

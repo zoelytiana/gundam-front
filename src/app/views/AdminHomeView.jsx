@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdminHomeView = () => {
     return (
-        <div className="">
+        <div className="container">
             ADMIN
         </div>
     );
