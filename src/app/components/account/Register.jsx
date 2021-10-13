@@ -22,7 +22,7 @@ const FormRegister = ({ submit, errorLog }) => (
     <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormRegister}>
         <Form className='mt-8 space-y-6'>
             <div className='rounded-md shadow-sm -space-y-px'>
-                <Field type="text" name="username" placeholder="Votre adresse e-mail" 
+                <Field type="email" name="email" placeholder="Votre adresse e-mail" 
                 component={ CustomInput } className='rounded-none rounded-t-md' noError/>
                 <Field type='password' name='password' placeholder='Mot de passe' 
                 component={ CustomInput } className='rounded-none rounded-none' noError/>

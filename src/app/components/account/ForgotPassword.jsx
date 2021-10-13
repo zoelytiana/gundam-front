@@ -1,14 +1,11 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { LockClosedIcon } from '@heroicons/react/solid'
-import { Link } from 'react-router-dom';
 
-import { defaulValuesLogin } from './../../shared/constants/formik-yup/default-values-form/idefaultValuesUser';
-import { schemaFormLogin } from './../../shared/constants/formik-yup/yup/yupUser';
-import ErrorMessSmall from './../../shared/components/form-and-error-components/ErrorMessSmall';
-import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
-
-import { URL_FORGOTPASSWORD } from './../../shared/constants/urls/urlConstants';
+import { defaulValuesForgotPassword } from '../../shared/constants/formik-yup/default-values-form/idefaultValuesForgotPassword';
+import { schemaFormForgotPassword } from '../../shared/constants/formik-yup/yup/yupForgotPassword';
+import ErrorMessSmall from '../../shared/components/form-and-error-components/ErrorMessSmall';
+import { CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 
 /**
  * Component Form Login
@@ -20,25 +17,12 @@ import { URL_FORGOTPASSWORD } from './../../shared/constants/urls/urlConstants';
  * @param {object} validationSchema: validation's schema of the form
  * @author Peter Mollet
  */
-const FormLogin = ({ submit, errorLog }) => (
-    <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormLogin}>
+const FormForgotPassword = ({ submit, errorLog }) => (
+    <Formik initialValues={defaulValuesForgotPassword} onSubmit={submit} validationSchema={schemaFormForgotPassword}>
         <Form className='mt-8 space-y-6'>
             <div className='rounded-md shadow-sm -space-y-px'>
-                <Field type="email" name="email" placeholder="Login" 
-                component={ CustomInput } className='rounded-none rounded-t-md' noError/>
-                <Field type='password' name='password' placeholder='Password' 
-                component={ CustomInput } className='rounded-none rounded-b-md' noError/>
-            </div>
-
-            <div className="flex items-center justify-between">
-                <Field name='rememberMe' label='Remember me' component={CustomCheckbox} value={true} />
-                <div className="text-sm">
-                    <Link to={URL_FORGOTPASSWORD} >
-                        <span className='font-medium text-primary-600 hover:text-primary-500 cursor-pointer' >
-                            Mot de passe oublié ?
-                        </span>
-                    </Link>
-                </div>
+                <Field type="email" name="email" placeholder="Entrez votre adresse e-mail" 
+                component={ CustomInput } className='rounded-b-md rounded-t-md' noError/>
             </div>
             
             <div>
@@ -46,10 +30,10 @@ const FormLogin = ({ submit, errorLog }) => (
                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                         <LockClosedIcon className="h-5 w-5 text-primary-800 group-hover:text-primary-400" aria-hidden="true" />
                     </span>
-                    Sign in
+                    Réinitialiser
                 </button>
             </div>
-            { errorLog && <ErrorMessSmall middle message="Login/Password incorrect(s)" /> }
+            { errorLog && <ErrorMessSmall middle message="Login inconnu" /> }
         </Form>
     </Formik>
 )
@@ -66,7 +50,7 @@ const FormLogin = ({ submit, errorLog }) => (
  * 
  * @author Peter Mollet
  */
-const Login = (props) => {
+const ForgotPassword = (props) => {
     return (
         <div className='bg-white p-4 rounded-md shadow max-w-md w-full space-y-8 py-12 px-4 sm:px-6 lg:px-8'>
             <div>
@@ -80,14 +64,14 @@ const Login = (props) => {
                     />
                 </div>
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
-                    Sign in to your account
+                    Réinitialisation du mot de passe
                 </h2>
             </div>
             
             <hr />
-            <FormLogin {...props} />
+            <FormForgotPassword {...props} />
         </div>
     );
 };
 
-export default Login;
+export default ForgotPassword;

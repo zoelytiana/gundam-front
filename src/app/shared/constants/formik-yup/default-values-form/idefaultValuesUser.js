@@ -1,5 +1,5 @@
 export const defaulValuesLogin = { 
-    username:'', 
+    email:'', 
     password:'',
     password2:'',
     rememberMe: false
