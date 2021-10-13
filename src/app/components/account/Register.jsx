@@ -1,11 +1,13 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { LockClosedIcon } from '@heroicons/react/solid'
+import { Link } from 'react-router-dom';
 
 import { defaulValuesLogin } from './../../shared/constants/formik-yup/default-values-form/idefaultValuesRegister';
 import { schemaFormRegister } from './../../shared/constants/formik-yup/yup/yupRegister';
 import ErrorMessSmall from './../../shared/components/form-and-error-components/ErrorMessSmall';
 import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
+import { URL_LOGIN } from '../../shared/constants/urls/urlConstants';
 
 /**
  * Component Form Login
@@ -18,6 +20,7 @@ import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-er
  * @author Peter Mollet
  */
 
+const inscrit = "J'ai déjà un compte. "
 const FormRegister = ({ submit, errorLog }) => (
     <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormRegister}>
         <Form className='mt-8 space-y-6'>
@@ -45,6 +48,17 @@ const FormRegister = ({ submit, errorLog }) => (
                     Inscription
                 </button>
             </div>
+            <div>
+                <div className="text-center">
+                    <span>{inscrit}</span>
+                    <Link to={URL_LOGIN} >
+                        <span className='font-medium text-primary-600 hover:text-primary-500 cursor-pointer text-center' >
+                            Se connecter
+                        </span>
+                    </Link>
+                </div>
+            </div>
+
             { errorLog && <ErrorMessSmall middle message="Les mots de passe ne correspondent pas" /> }
         </Form>
     </Formik>
@@ -66,6 +80,15 @@ const Register = (props) => {
     return (
         <div className='bg-white p-4 rounded-md shadow max-w-md w-full space-y-8 py-12 px-4 sm:px-6 lg:px-8'>
             <div>
+                <div className='flex justify-center'>
+                    <img
+                        className="h-12 w-auto sm:h-10 cursor-pointer"
+                        src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
+                        alt=""
+                        width={200}
+                        height={60}
+                    />
+                </div>
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
                     Inscrivez-vous gratuitement
                 </h2>

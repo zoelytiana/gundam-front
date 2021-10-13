@@ -8,7 +8,7 @@ import { schemaFormLogin } from './../../shared/constants/formik-yup/yup/yupUser
 import ErrorMessSmall from './../../shared/components/form-and-error-components/ErrorMessSmall';
 import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 
-import { URL_FORGOTPASSWORD } from './../../shared/constants/urls/urlConstants';
+import { URL_FORGOTPASSWORD, URL_REGISTER } from './../../shared/constants/urls/urlConstants';
 
 /**
  * Component Form Login
@@ -20,6 +20,8 @@ import { URL_FORGOTPASSWORD } from './../../shared/constants/urls/urlConstants';
  * @param {object} validationSchema: validation's schema of the form
  * @author Peter Mollet
  */
+const membre = "Vous n'êtes pas encore membre ? "
+
 const FormLogin = ({ submit, errorLog }) => (
     <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormLogin}>
         <Form className='mt-8 space-y-6'>
@@ -31,7 +33,7 @@ const FormLogin = ({ submit, errorLog }) => (
             </div>
 
             <div className="flex items-center justify-between">
-                <Field name='rememberMe' label='Remember me' component={CustomCheckbox} value={true} />
+                <Field name='rememberMe' label='Se souvenir de moi' component={CustomCheckbox} value={true} />
                 <div className="text-sm">
                     <Link to={URL_FORGOTPASSWORD} >
                         <span className='font-medium text-primary-600 hover:text-primary-500 cursor-pointer' >
@@ -48,6 +50,16 @@ const FormLogin = ({ submit, errorLog }) => (
                     </span>
                     Sign in
                 </button>
+            </div>
+            <div>
+                <div className="text-center">
+                    <span>{membre}</span>
+                    <Link to={URL_REGISTER} >
+                        <span className='font-medium text-primary-600 hover:text-primary-500 cursor-pointer text-center' >
+                            Créer un compte
+                        </span>
+                    </Link>
+                </div>
             </div>
             { errorLog && <ErrorMessSmall middle message="Login/Password incorrect(s)" /> }
         </Form>
@@ -80,7 +92,7 @@ const Login = (props) => {
                     />
                 </div>
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
-                    Sign in to your account
+                    Se connecter à son compte
                 </h2>
             </div>
             
