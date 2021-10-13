@@ -4,6 +4,88 @@
 
 
 @layer components {
+
+    @font-face {
+        font-family: 'Affirmative';
+        -moz-font-family: 'Affirmative';
+        -webkit-font-family: 'Affirmative';
+        -khtml-font-family: 'Affirmative';
+        -o-font-family: 'Affirmative';
+        src: url('../Font/Affirmative.otf');
+
+        font-family: 'Mandali';
+        -moz-font-family: 'Mandali';
+        -webkit-font-family: 'Mandali';
+        -khtml-font-family: 'Mandali';
+        -o-font-family: 'Mandali';
+        src: url('../Font/Mandalika.ttf');
+
+        font-family: 'Roboto';
+        -moz-font-family: 'Roboto';
+        -webkit-font-family: 'Roboto';
+        -khtml-font-family: 'Roboto';
+        -o-font-family: 'Roboto';
+        src: url('../Font/Roboto-Bold.ttf')
+             url('../Font/Roboto-Regular.ttf');
+        }
+        
+        body {
+        background-color: #1f1f24;
+        font-family: 'Mandali';
+        -moz-font-family: 'Mandali';
+        -webkit-font-family: 'Mandali';
+        -khtml-font-family: 'Mandali';
+        -o-font-family: 'Mandali';
+        font-size: 13px;
+        font-weight: normal;
+        color: #333333;
+        margin: 0px;
+        padding: 0px; 
+        }
+
+    h1 {
+        font-family: 'Roboto';
+        -moz-font-family: 'Roboto';
+        -webkit-font-family: 'Roboto';
+        -khtml-font-family: 'Roboto';
+        -o-font-family: 'Roboto';
+        font-size: 34px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-family: 'Roboto';
+        -moz-font-family: 'Roboto';
+        -webkit-font-family: 'Roboto';
+        -khtml-font-family: 'Roboto';
+        -o-font-family: 'Roboto';
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        font-family: 'Affirmative';
+        -moz-font-family: 'Affirmative';
+        -webkit-font-family: 'Affirmative';
+        -khtml-font-family: 'Affirmative';
+        -o-font-family: 'Affirmative';
+        font-size: 30px;
+        width: 500px;
+    }
+
+    .container {
+        margin-top: 100px;
+        padding: 30px 10px 10px 20px;
+    }
+
     label {
         margin-bottom: 0px!important;
     }

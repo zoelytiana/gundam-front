@@ -7,7 +7,7 @@ import { defaulValuesLogin } from './../../shared/constants/formik-yup/default-v
 import { schemaFormRegister } from './../../shared/constants/formik-yup/yup/yupRegister';
 import ErrorMessSmall from './../../shared/components/form-and-error-components/ErrorMessSmall';
 import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
-import { URL_LOGIN } from '../../shared/constants/urls/urlConstants';
+import { URL_CGU, URL_LOGIN } from '../../shared/constants/urls/urlConstants';
 
 /**
  * Component Form Login
@@ -35,9 +35,12 @@ const FormRegister = ({ submit, errorLog }) => (
 
             <div className="flex items-center">
                 <Field name='cgu' component={CustomCheckbox} value={true} />
+
+                <Link to={URL_CGU}>
                 <label className="form-check-label" for="flexCheckChecked">
-                    J'accepte les<a href='/CGV'className="text-primary-600"> conditions d'utilisations</a>
+                    J'accepte les<a href={URL_CGU}className="text-primary-600"> conditions d'utilisations</a>
                 </label>
+                </Link>
             </div>
             
             <div>

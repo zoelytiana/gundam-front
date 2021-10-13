@@ -10,15 +10,8 @@ const Navbar = () => {
         <nav className="top-0 fixed z-50 w-full bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-                    <div>
-                        <img
-                            className="h-8 w-auto sm:h-10 cursor-pointer"
-                            src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
-                            alt=""
-                            width={200}
-                            height={60}
-                            onClick={history.push(URL_HOME)}
-                        />
+                    <div className="logo">
+                        <i>GunDam Shop</i>
                     </div>
 
                     <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
