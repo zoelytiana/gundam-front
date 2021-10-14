@@ -11,13 +11,14 @@
         -webkit-font-family: 'Affirmative';
         -khtml-font-family: 'Affirmative';
         -o-font-family: 'Affirmative';
-        src: url('../Font/Affirmative.otf');
+        src: url('../Font/Affirmative.otf')
+             url('../Font/Affirmative-Italic.ttf');
 
-        font-family: 'Mandali';
-        -moz-font-family: 'Mandali';
-        -webkit-font-family: 'Mandali';
-        -khtml-font-family: 'Mandali';
-        -o-font-family: 'Mandali';
+        font-family: 'Mandalika';
+        -moz-font-family: 'Mandalika';
+        -webkit-font-family: 'Mandalika';
+        -khtml-font-family: 'Mandalika';
+        -o-font-family: 'Mandalika';
         src: url('../Font/Mandalika.ttf');
 
         font-family: 'Roboto';
@@ -31,11 +32,11 @@
         
         body {
         background-color: #1f1f24;
-        font-family: 'Mandali';
-        -moz-font-family: 'Mandali';
-        -webkit-font-family: 'Mandali';
-        -khtml-font-family: 'Mandali';
-        -o-font-family: 'Mandali';
+        font-family: 'Mandalika';
+        -moz-font-family: 'Mandalika';
+        -webkit-font-family: 'Mandalika';
+        -khtml-font-family: 'Mandalika';
+        -o-font-family: 'Mandalika';
         font-size: 13px;
         font-weight: normal;
         color: #333333;

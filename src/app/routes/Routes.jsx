@@ -11,7 +11,8 @@ import {
             URL_ENVIE, 
             URL_PRESENTATION, 
             URL_FORGOTPASSWORD, 
-            URL_CGU
+            URL_CGU,
+            URL_CONTACT
         } from '../shared/constants/urls/urlConstants';
 
 import HomeView from '../views/HomeView';
@@ -23,6 +24,7 @@ import DetailView from '../views/DetailView';
 import PanierView from '../views/PanierView';
 import EnvieView from '../views/EnvieView';
 import PresentationView from '../views/PresentationView';
+import ContactView from '../views/ContactView';
 
 import CguView from '../views/CguView';
 import ForgotPasswordView from '../views/ForgotPasswordView';
@@ -49,6 +51,7 @@ const Routes = () => {
             <Route path={URL_PANIER} component={PanierView} />
             <Route path={URL_ENVIE} component={EnvieView} />
             <Route path={URL_PRESENTATION} component={PresentationView} />
+            <Route path={URL_CONTACT} component={ContactView} />
 
             <Route path={URL_FORGOTPASSWORD} component={ForgotPasswordView} />
             <Route path={URL_CGU} component={CguView} /> 
