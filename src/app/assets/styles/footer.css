@@ -1,0 +1,58 @@
+@media screen and (min-width: 1536px) {
+
+}
+
+@media screen and (min-width: 1280px) {
+
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 640px) {
+
+}
+
+footer {
+    background-color: #404040;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+.FooterLogo {
+    width: 250px;
+    vertical-align: top;
+}
+
+.FooterCadreLi1 .FooterCadreLi2 .FooterCadreLi3 {
+    vertical-align: top;
+}
+
+.FooterCadreNews {
+    width: 320px;
+    vertical-align: top;
+}
+
+.FooterTitre {
+    font-size: 18px;
+    filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.75))!important;
+}
+
+.FooterCadreLi1 {
+    border-bottom: 7px solid #880C01;
+}
+
+.FooterCadreLi2 {
+    border-bottom: 7px solid #5380B1;
+    
+}
+
+.FooterCadreLi3 {
+    border-bottom: 7px solid #F6CD35;
+    
+}

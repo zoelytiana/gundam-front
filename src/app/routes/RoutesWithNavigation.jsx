@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import Routes from './Routes';
 import { selectIsLogged } from './../shared/redux-store/authenticationSlice';
 import Navbar from './../components/layouts/Navbar';
+import Footer from './../components/layouts/Footer';
 import IdleTimerCustom from './../components/account/IdleTimerCustom';
 
 const contextClass = {
@@ -42,6 +43,7 @@ const RoutesWithNavigation = () => {
                     position="bottom-left"
                     autoClose={3000}
                 />
+                <Footer/>
             </div>
         </BrowserRouter>
     );
