@@ -3,9 +3,9 @@ import React from 'react'
 const PresentationView = () => {
     return (
         <div className="container">
-            <p>
+            <div className="max-w-7xl px-4 mx-auto">
                Presentation 
-            </p>
+            </div>
         </div>
     )
 }

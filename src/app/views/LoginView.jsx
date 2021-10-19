@@ -27,8 +27,10 @@ import Login from './../components/account/Login';
     }
 
     return (
-        <div className="">
-            <Login submit={handleLogin} errorLog={errorLog} />
+        <div className="container">
+            <div className="max-w-7xl mx-auto">
+                <Login submit={handleLogin} errorLog={errorLog} />
+            </div>
         </div>
     );
 };

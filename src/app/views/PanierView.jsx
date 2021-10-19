@@ -3,9 +3,9 @@ import React from 'react'
 const PanierView = () => {
     return (
         <div className="container">
-            <p>
+            <div className="max-w-7xl px-4 mx-auto">
                Panier 
-            </p>
+            </div>
         </div>
     )
 }

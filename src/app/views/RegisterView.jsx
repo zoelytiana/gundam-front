@@ -27,8 +27,10 @@ import Register from './../components/account/Register';
     }
 
     return (
-        <div className="">
+        <div className="container">
+            <div className="max-w-7xl px-4 mx-auto">
             <Register submit={handleRegister} errorLog={errorLog} />
+            </div>
         </div>
     );
 };

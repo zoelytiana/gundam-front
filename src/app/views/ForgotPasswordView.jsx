@@ -27,8 +27,10 @@ import ForgotPassword from './../components/account/ForgotPassword';
     }
 
     return (
-        <div className="">
+        <div className="container">
+            <div className="max-w-7xl px-4 mx-auto">
             <ForgotPassword submit={handleForgotPassword} errorLog={errorLog} />
+            </div>
         </div>
     );
 };

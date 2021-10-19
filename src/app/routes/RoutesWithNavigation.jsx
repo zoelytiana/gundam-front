@@ -29,7 +29,7 @@ const RoutesWithNavigation = () => {
 
     return (
         <BrowserRouter>
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 cursor-default">
+            <div className="min-h-full flex flex-col items-center justify-center bg-white cursor-default">
                 { isLogged && <IdleTimerCustom />}
                 <Navbar/>
                 <main>

@@ -14,6 +14,7 @@ import { defaulValuesNewsLetter } from './../../shared/constants/formik-yup/defa
 import { schemaFormNewsLetter } from './../../shared/constants/formik-yup/yup/yupNewsLetter';
 import ErrorMessSmall from './../../shared/components/form-and-error-components/ErrorMessSmall';
 import { CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
+import { URL_CGU } from '../../shared/constants/urls/urlConstants';
 
 const Footer = (props) => {
     return (
@@ -116,7 +117,7 @@ const FooterBtnSociete = () => {
                     Mentions-légales
                 </div>
             </Link>
-            <Link to="">
+            <Link to={URL_CGU}>
                 <div className='block lg:mt-0 text-white mr-4 link'>
                     Conditions d'utilisations
                 </div>
