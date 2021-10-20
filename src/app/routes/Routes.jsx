@@ -12,7 +12,14 @@ import {
             URL_PRESENTATION, 
             URL_FORGOTPASSWORD, 
             URL_CGU,
-            URL_CONTACT
+            URL_CONTACT,
+            URL_MENTIONS,
+            URL_PAIEMENT,
+            URL_LIVRAISON_RETOUR,
+            URL_INFO_PERSO,
+            URL_RETOUR_PRODUIT,
+            URL_COMMANDE,
+            URL_ADRESSE
         } from '../shared/constants/urls/urlConstants';
 
 import HomeView from '../views/HomeView';
@@ -25,13 +32,21 @@ import PanierView from '../views/PanierView';
 import EnvieView from '../views/EnvieView';
 import PresentationView from '../views/PresentationView';
 import ContactView from '../views/ContactView';
+import MentionsView from '../views/MentionsView';
+import PaiementView from '../views/PaiementView';
+import LivraisonRetourView from '../views/LivraisonRetourView';
+
+import InfoPersoView from '../views/InfoPersoView';
+import RetourProduitView from '../views/RetourProduitView';
+import CommandeView from '../views/CommandeView';
+import AdresseView from '../views/AdresseView';
 
 import CguView from '../views/CguView';
 import ForgotPasswordView from '../views/ForgotPasswordView';
 
 import { customHistory } from '../shared/services/historyServices';
 import AdminHomeView from '../views/AdminHomeView';
-import { ROLE_ADMIN } from '../shared/constants/rolesConstant';
+import { ROLE_ADMIN, ROLE_USER } from '../shared/constants/rolesConstant';
 import { PrivateRoute } from '../shared/components/utils-components/PrivateRoute';
 
 /**
@@ -39,6 +54,7 @@ import { PrivateRoute } from '../shared/components/utils-components/PrivateRoute
  * with public and private route
  * 
  * @author Peter Mollet
+ * @author Michael Helinckx
  */
 const Routes = () => {
     return (
@@ -52,9 +68,17 @@ const Routes = () => {
             <Route path={URL_ENVIE} component={EnvieView} />
             <Route path={URL_PRESENTATION} component={PresentationView} />
             <Route path={URL_CONTACT} component={ContactView} />
+            <Route path={URL_MENTIONS} component={MentionsView} />
+            <Route path={URL_PAIEMENT} component={PaiementView} />
+            <Route path={URL_LIVRAISON_RETOUR} component={LivraisonRetourView} />
+            <Route path={URL_CGU} component={CguView} /> 
 
             <Route path={URL_FORGOTPASSWORD} component={ForgotPasswordView} />
-            <Route path={URL_CGU} component={CguView} /> 
+
+            <PrivateRoute path={URL_INFO_PERSO} component={InfoPersoView} roles={[ROLE_USER]} />
+            <PrivateRoute path={URL_RETOUR_PRODUIT} component={RetourProduitView} roles={[ROLE_USER]} />
+            <PrivateRoute path={URL_COMMANDE} component={CommandeView} roles={[ROLE_USER]} />
+            <PrivateRoute path={URL_ADRESSE} component={AdresseView} roles={[ROLE_USER]} />
 
             <Route path={URL_LOGIN} component={LoginView} />
             <Route path={URL_REGISTER} component={RegisterView} />

@@ -1,5 +1,9 @@
 import React from 'react'
 
+/**
+* @author Michael Helinckx
+*/
+
 const CguView = () => {
     return (
         <div className="container">

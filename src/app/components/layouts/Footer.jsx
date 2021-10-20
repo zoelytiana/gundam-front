@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { URL_HOME, URL_CONTACT } from '../../shared/constants/urls/urlConstants';
+import { URL_HOME, URL_CONTACT, URL_MENTIONS, URL_PAIEMENT, URL_LIVRAISON_RETOUR, URL_INFO_PERSO, URL_RETOUR_PRODUIT, URL_COMMANDE, URL_ADRESSE } from '../../shared/constants/urls/urlConstants';
 
 import teteGundam from '../../assets/images/tete-gundam.png';
 import MasterCard from '../../assets/images/mode-de-paiement_0002_Calque1.jpg';
@@ -15,6 +15,10 @@ import { schemaFormNewsLetter } from './../../shared/constants/formik-yup/yup/yu
 import ErrorMessSmall from './../../shared/components/form-and-error-components/ErrorMessSmall';
 import { CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 import { URL_CGU } from '../../shared/constants/urls/urlConstants';
+
+/**
+* @author Michael Helinckx
+*/
 
 const Footer = (props) => {
     return (
@@ -107,12 +111,7 @@ const FooterBtnProduit = () => {
 const FooterBtnSociete = () => {
     return (
         <>
-            <Link to="">
-                <div className='block lg:mt-0 text-white mr-4 link'>
-                    À propos
-                </div>
-            </Link>
-            <Link to="">
+            <Link to={URL_MENTIONS}>
                 <div className='block lg:mt-0 text-white mr-4 link'>
                     Mentions-légales
                 </div>
@@ -122,12 +121,12 @@ const FooterBtnSociete = () => {
                     Conditions d'utilisations
                 </div>
             </Link>
-            <Link to="">
+            <Link to={URL_PAIEMENT}>
                 <div className='block lg:mt-0 text-white mr-4 link'>
                     Paiement sécurisé
                 </div>
             </Link>
-            <Link to="">
+            <Link to={URL_LIVRAISON_RETOUR}>
                 <div className='block lg:mt-0 text-white mr-4 link'>
                     Livraison & retour
                 </div>
@@ -143,22 +142,22 @@ const FooterBtnSociete = () => {
 const FooterBtnCompte = () => {
     return (
         <>
-            <Link to="">
+            <Link to={URL_INFO_PERSO}>
                 <div className='block lg:mt-0 text-white mr-4 link'>
                     Informations personnelles
                 </div>
             </Link>
-            <Link to="">
+            <Link to={URL_RETOUR_PRODUIT}>
                 <div className='block lg:mt-0 text-white mr-4 link'>
                     Retour produits
                 </div>
             </Link>
-            <Link to="">
+            <Link to={URL_COMMANDE}>
                 <div className='block lg:mt-0 text-white mr-4 link'>
                     Commandes
                 </div>
             </Link>
-            <Link to="">
+            <Link to={URL_ADRESSE}>
                 <div className='block lg:mt-0 text-white mr-4 link'>
                     Adresses
                 </div>
