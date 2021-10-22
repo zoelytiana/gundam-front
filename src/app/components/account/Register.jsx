@@ -9,7 +9,7 @@ import ErrorMessSmall from './../../shared/components/form-and-error-components/
 import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 import { URL_CGU, URL_LOGIN } from '../../shared/constants/urls/urlConstants';
 
-import '../../assets/styles/inscription.css'
+import '../../assets/styles/register.css'
 
 /**
  * Component Form Login
@@ -85,9 +85,9 @@ const Register = (props) => {
     return (
         <div className='cadreInscription bg-white p-4 shadow space-y-8 py-12 px-4 sm:px-6 lg:px-8'>
             <div>
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
+                <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-800 uppercase">
                     Inscrivez-vous gratuitement
-                </h2>
+                </h1>
             </div>
             
             <hr />
