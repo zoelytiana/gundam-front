@@ -1,0 +1,154 @@
+body {
+  font-family: 'Roboto', sans-serif, 'arial';
+  background-color: #444442;
+  padding-top: 85px;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif, 'arial';
+  font-weight: 600;
+  font-size: 72px;
+  color: white;
+  text-align: center;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif, 'arial';
+  font-weight: 400;
+  font-size: 20px;
+  color: #9b9b9b;
+  line-height: 1.5;
+}
+
+.product-name{
+    font-weight: 600;
+    font-size: 16px;
+    color: #313030;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.product-price{
+    font-weight: 200;
+    font-size: 12px;
+    color: #313030;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.box{
+    display: block;
+    margin:15px;
+    width: 150px;
+}
+.box img{
+    width: 150px; 
+}
+.box-desc{
+    box-shadow: 2px 2px 0px #aaa; 
+     padding: 10px 10px;
+     width:150px;
+     border-radius: 0 0 5px 5px;
+}
+
+.flex{
+    justify-content: space-between;
+}
+
+.flex-list{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+
+.flex-container{
+  background-color: #ECECEC;
+}
+
+.flex-box{
+  padding : 2rem;
+}
+
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+.lien img{
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+}
+.flex-bas{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px;
+}
+
+.flex-bas img{
+  width: 50px;
+}
+
+/* image produit */
+#picture{
+	display: block;
+	position: relative;
+	width: 150px;
+	height: 150px;
+	background: #FFFFFF;
+	margin: 0 auto; padding: 0;
+}
+
+.picture {
+  width:150px;
+  height:150px;
+  position: relative;
+  display: block;
+  background: white;
+  text-align: center;
+  color: white;
+  padding: 15px;
+ }
+ 
+ .picture:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom: 20px solid #ECECEC;
+  border-left: 20px solid white;
+  width: 0;
+}
+
+/* ///// inputs /////*/
+
+.flexCol{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+  width: 100%;
+}
+
+.flexCol input{
+  width: 100%;
+	min-width: 300px;
+}
+
+.btn{
+  background-color: rgba(136, 12, 1,1 );
+  color : rgb(161, 139, 139);
+  font-weight: bold;
+  padding: .5rem 1.5rem;
+  border-radius: 4px;
+}
+
+.btn:hover{
+  background-color: blue;
+}
+
+@media only screen and (max-width: 768px){
+  .styled-input {
+      width:100%;
+  }
+}
