@@ -19,7 +19,10 @@ import {
             URL_INFO_PERSO,
             URL_RETOUR_PRODUIT,
             URL_COMMANDE,
-            URL_ADRESSE
+            URL_ADRESSE,
+            URL_CONTACT_FORM, 
+            URL_LIVRAISON, 
+            URL_LISTEENVIES
         } from '../shared/constants/urls/urlConstants';
 
 import HomeView from '../views/HomeView';
@@ -43,6 +46,9 @@ import AdresseView from '../views/AdresseView';
 
 import CguView from '../views/CguView';
 import ForgotPasswordView from '../views/ForgotPasswordView';
+import ContactFormView from '../views/ContactFormView';
+import LivraisonView from '../views/LivraisonView';
+import ListeEnviesView from '../views/ListeEnvieView';
 
 import { customHistory } from '../shared/services/historyServices';
 import AdminHomeView from '../views/AdminHomeView';
@@ -67,6 +73,7 @@ const Routes = () => {
             <Route path={URL_PANIER} component={PanierView} />
             <Route path={URL_ENVIE} component={EnvieView} />
             <Route path={URL_PRESENTATION} component={PresentationView} />
+            
             <Route path={URL_CONTACT} component={ContactView} />
             <Route path={URL_MENTIONS} component={MentionsView} />
             <Route path={URL_PAIEMENT} component={PaiementView} />
@@ -79,6 +86,10 @@ const Routes = () => {
             <PrivateRoute path={URL_RETOUR_PRODUIT} component={RetourProduitView} roles={[ROLE_USER]} />
             <PrivateRoute path={URL_COMMANDE} component={CommandeView} roles={[ROLE_USER]} />
             <PrivateRoute path={URL_ADRESSE} component={AdresseView} roles={[ROLE_USER]} />
+
+            <Route path={URL_CONTACT_FORM} component={ContactFormView} />
+            <Route path={URL_LIVRAISON} component={LivraisonView} />
+            <Route path={URL_LISTEENVIES} component={ListeEnviesView} />
 
             <Route path={URL_LOGIN} component={LoginView} />
             <Route path={URL_REGISTER} component={RegisterView} />
