@@ -60,3 +60,24 @@ export const CustomCheckbox = ({ field: { name, value, onChange, onBlur }, form,
         </div>
     )
 }
+
+export const CustomTextarea = ({ noError, errorRight, className, type, field: {name}, field, form:{ errors, touched }, ...rest }) => {
+    return (
+        <div className='relative'>
+            <textarea
+                id={name}
+                name={name}
+                type={type}
+                className={`input ${errors[name] && touched[name] && 'input-error'} ${className} `}
+                {...field}
+                {...rest}
+            ></textarea>
+            {!noError && (
+                <ErrorMessage
+                    name={field.name}
+                    className={`text-xs text-red-500 absolute bottom-0 ${errorRight ? 'right-0' : 'left-0'}`}
+                />
+            )}
+        </div>
+    )
+}

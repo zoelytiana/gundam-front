@@ -4,7 +4,7 @@ import { signIn } from '../shared/redux-store/authenticationSlice';
 import { authenticate } from '../api/backend/account';
 import { URL_HOME } from '../shared/constants/urls/urlConstants';
 import { isAuthenticated } from '../shared/services/accountServices';
-import Contact from '../components/account/Contact';
+import ContactForm from '../components/account/ContactForm';
 
 
 /**
@@ -29,7 +29,7 @@ import Contact from '../components/account/Contact';
 
     return (
         <div className="flex w-full">
-            <Contact submit={handleContact} errorLog={errorLog} />
+            <ContactForm submit={handleContact} errorLog={errorLog} />
         </div>
     );
 };
