@@ -1,0 +1,36 @@
+.boutiqueCard ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.boutiqueCard li {
+    flex-basis: 23%;
+    margin: 1rem;
+}
+
+.boutiqueInfos {
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.137);
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.boutiquePrice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.boutiquePrice h3{
+    font-weight: bold;
+}
+
+.boutiqueButton {
+    display: flex;
+    justify-content: end;
+}
+
+.boutiqueButton button {
+    background-color: #F6CD35;
+    margin-left: 0.3rem;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+}
