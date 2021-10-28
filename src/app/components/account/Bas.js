@@ -1,10 +1,10 @@
 import React from "react";
 
-import Amazon from '../../img/amazon_pay.png'
-import Livraison from '../../img/livraison_gratuite.png'
-import Paiement from '../../img/paiement_securise.png'
-import Qualite from '../../img/qualite_premium.png'
-import Service from '../../img/service_client_mobile.png'
+import Amazon from '../../assets/images/amazon_pay.png'
+import Livraison from '../../assets/images/livraison_gratuite.png'
+import Paiement from '../../assets/images/paiement_securise.png'
+import Qualite from '../../assets/images/qualite_premium.png'
+import Service from '../../assets/images/service_client_mobile.png'
 const change = () =>{
     console.log('ici');
 }

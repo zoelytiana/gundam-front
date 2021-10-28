@@ -1,14 +1,14 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 
-import { defaulValuesContact } from './../../shared/constants/formik-yup/default-values-form/idefaultValuesContact';
-import { schemaFormContact } from './../../shared/constants/formik-yup/yup/yupContact';
-import { CustomInput, CustomTextarea} from '../../shared/components/form-and-error-components/InputCustom';
-import './../../css/styles-form.css';
+import { defaulValuesContact } from './../../shared/constants/formik-yup/default-values-form/idefaultValuesContact'
+import { schemaFormContact } from './../../shared/constants/formik-yup/yup/yupContact'
+import { CustomInput, CustomTextarea} from '../../shared/components/form-and-error-components/InputCustom'
+import picturers from '../../assets/images/rs.png';
 
 
 /**
- * Component Form Login
+ * Component Form Login/
  * Use Formik to create the Form
  * 
  * @param {function} submit: submit Function
@@ -67,12 +67,15 @@ const ContactForm = (props) => {
     return (
 <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
 
-            <div>
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-primary-100">
+            <div className='p-5'>
+                <h2 className="mt-6 text-center text-3xl font-extrabold">
                     NOUS CONTACTER
                 </h2>
+                <p>Si vous désirer nous contacter, obtenir des informations, veuillez nous laisser nous un message avec vos coordonnées. Nous vous répondrons dans le plus bref délais.</p>
             </div>
     <FormContact {...props} /> 
+
+    <div className='center-div'><img src={picturers} alt='Reseaux sociaux'/></div>
 </div>
     );
 };
