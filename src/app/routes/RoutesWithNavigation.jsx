@@ -23,6 +23,7 @@ const contextClass = {
  * 
  * @author Peter Mollet
  */
+
 const RoutesWithNavigation = () => {
     
     const isLogged = useSelector(selectIsLogged)
