@@ -14,6 +14,9 @@ const HomeView = () => {
                         
                     <label for="scales">Scales</label>
                 </div>
+                <div className="box-product">
+                    <img src="https://img.gaming.gentside.com/article/gundam/figurine-zgmf-x10a-freedom-gundam-171625-de-bandai-hobby_15217190da05576a7ea2c0093582f87ff78d72cf.jpg" alt="" />
+                </div>
             </div>
         </div>
     )
