@@ -7,6 +7,13 @@ const HomeView = () => {
                 <div className="btn-form">
                     <button><div className="btn-form-text">HOME</div></button>
                 </div>
+                <input className="input" type="text" id="name" placeholder="Test Input Style" />
+                <input className="input-error" type="text" id="name" placeholder="Test Input Style" />
+                <div>
+                    <input className="checkbox" type="checkbox" id="scales" name="scales"/>
+                        
+                    <label for="scales">Scales</label>
+                </div>
             </div>
         </div>
     )
