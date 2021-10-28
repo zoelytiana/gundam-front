@@ -3,8 +3,8 @@ import { Formik, Form, Field } from 'formik';
 
 import { defaulValuesLivraison } from './../../shared/constants/formik-yup/default-values-form/idefaultValuesLivraison';
 import { schemaFormLivraison } from './../../shared/constants/formik-yup/yup/yupLivraison';
-import { CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
-import './../../css/styles-form.css';
+import { CustomInput, CustomCheckbox } from '../../shared/components/form-and-error-components/InputCustom';
+import amazon from '../../assets/images/amazon_pay2.png'
 
 /**
  * Component Form Login
@@ -24,13 +24,11 @@ const FormLivraison = ({ submit, errorLog }) => (
             <Field type='email' name='email' placeholder='email' 
             component={ CustomInput } className='styled-input'/>
         </div>
-        <div className='w-full my-2'>
-            <Field type="text" name="name" placeholder="name" 
-            component={ CustomInput } className='styled-input'/>
-        </div>
-        <div className='w-full my-2'>
-            <Field type="text" name='lastName' placeholder='lastName' 
-            component={ CustomInput } className='styled-input'/>
+        <div className='flexCol'>
+                <Field type="text" name="name" placeholder="name" 
+                component={ CustomInput } className='styled-input'/>
+                <Field type="text" name='lastName' placeholder='lastName' 
+                component={ CustomInput } className='styled-input'/>
         </div>
         <div className='w-full my-2'>
             <Field type='address' name='address' placeholder='address' 
@@ -41,27 +39,30 @@ const FormLivraison = ({ submit, errorLog }) => (
             <Field type='address2' name='address2' placeholder='address2' 
             component={ CustomInput } className='styled-input'/>
         </div>
-
-        <div className='w-full my-2'>
-            <Field type='text' name='phone' placeholder='phone' 
-            component={ CustomInput } className='styled-input'/>
-        </div>
-
         <div className='w-full my-2'>
             <Field type='text' name='city' placeholder='city' 
             component={ CustomInput } className='styled-input'/>
-        </div>
-
-        <div className='w-full flex my-2'>
-            <Field type='checkbox' name='save' placeholder='save' 
+        </div>    
+        <div className='w-full my-2'>
+            <Field type='text' name='phone' placeholder='phone (optional)' 
             component={ CustomInput } className='styled-input'/>
-            <label className=''>Sauvegarder mes données</label>
         </div>
 
+        <div className='w-full flex my-4'>
+            <div className='center'>
+            <Field type='checkbox' name='save' placeholder='save' 
+            component={ CustomCheckbox } className='styled-input' label ='Sauvegarder mes données'/>
+            </div>
+        </div>
+        <div className='center'>
+            <div className='form-shadow'>
+            <img src={amazon} alt='Amazon'/>
+            </div>
+        </div>
 
-        <div className='w-full my-2 text-center'>
-            <button className='btn'>
-                VOIR MON PANIER
+        <div className='w-full my-4 text-center'>
+            <button className='btn-form'>
+                <div className='btn-form-text'>VOIR MON PANIER</div>
             </button>
         </div>
         </Form>
@@ -82,12 +83,13 @@ const FormLivraison = ({ submit, errorLog }) => (
  */
 const Livraison = (props) => {
     return (
-<div className="max-w-md mx-auto bg-white rounded-xl shadow-md overscroll-auto md:max-w-2xl">
+<div className="max-w-md mx-auto bg-form rounded-xl shadow-md overscroll-auto md:max-w-2xl">
 
             <div>
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-secondary-100">
-                    INSTRUCTION DE LIVRAISON
+                <h2 className="mt-6 text-center text-3xl font-extrabold">
+                    INSTRUCTIONS DE LIVRAISON
                 </h2>
+                <p className='note'>Vous avez déjà un compte? <a href='/connect'>Se connecter</a></p>
             </div>
     <FormLivraison {...props} /> 
 </div>

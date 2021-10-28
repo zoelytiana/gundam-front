@@ -25,10 +25,10 @@ class ListeEnvies extends Component{
 
     render(){
         return(
-            <div className="max-w-md mx-auto md:max-w-2xl flex-container">
+            <div className="flex-container">
                 <div className='flex-box'>
-                    <h2 onMouseOver={this.change} className="mt-6 text-left text-3xl font-extrabold text-primary-100">LISTE DES ENVIES</h2>
-                    <div className='flex-list flex-wrap'>
+                    <h2 onMouseOver={this.change} className="mt-6 text-left text-3xl font-extrabold">LISTE DES ENVIES</h2>
+                    <div className='flex-list-wrap'>
                     {
                         this.state.produit.map((produit, index)=>{
                             return(
@@ -39,7 +39,6 @@ class ListeEnvies extends Component{
                     </div>
                 </div>
                 <div><Bas/></div>
-                <div className="bg-black">footer</div>
                 
             </div>
         )
