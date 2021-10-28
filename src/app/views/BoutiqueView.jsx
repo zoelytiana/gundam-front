@@ -1,4 +1,5 @@
 import React from 'react';
+import AsideFilter from '../components/boutique/AsideFilter';
 import BoutiqueItem from '../components/boutique/BoutiqueItem';
 
 const gundamArray = [
@@ -72,13 +73,16 @@ const gundamArray = [
         name: "Gundam RX-78-2",
         price: 79,
     },
-    
+
 ]
 
 const BoutiqueView = () => {
     return (
         <div className="container">
-            <BoutiqueItem gundams={gundamArray} />
+            <div className="flex">
+                <AsideFilter />
+                <BoutiqueItem gundams={gundamArray} />
+            </div>
         </div>
     )
 }
