@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Product from './Product'
 import Total from './Total'
-import PanierPic from '../../assets/images/panier.png'
 
 class Panier extends Component{
 
