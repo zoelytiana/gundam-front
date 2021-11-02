@@ -10,6 +10,8 @@ import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-er
 
 import { URL_FORGOTPASSWORD, URL_REGISTER } from './../../shared/constants/urls/urlConstants';
 
+import '../../assets/styles/login.css'
+
 /**
  * Component Form Login
  * Use Formik to create the Form
@@ -27,35 +29,35 @@ const FormLogin = ({ submit, errorLog }) => (
         <Form className='mt-8 space-y-6'>
             <div className='rounded-md shadow-sm -space-y-px'>
                 <Field type="email" name="email" placeholder="Login" 
-                component={ CustomInput } className='rounded-none rounded-t-md' noError/>
+                component={ CustomInput } className='rounded-none my-3' noError/>
                 <Field type='password' name='password' placeholder='Password' 
-                component={ CustomInput } className='rounded-none rounded-b-md' noError/>
+                component={ CustomInput } className='rounded-none my-3' noError/>
             </div>
 
             <div className="flex items-center justify-between">
                 <Field name='rememberMe' label='Se souvenir de moi' component={CustomCheckbox} value={true} />
                 <div className="text-sm">
                     <Link to={URL_FORGOTPASSWORD} >
-                        <span className='font-medium text-primary-600 hover:text-primary-500 cursor-pointer' >
+                        <span className='font-medium text-red-700 hover:text-primary-500 cursor-pointer' >
                             Mot de passe oublié ?
                         </span>
                     </Link>
                 </div>
             </div>
             
-            <div>
-                <button type="submit" className="group relative btn btn-primary w-full">
+            <div className="flex justify-center">
+                <button type="submit" className="CnxBtn">
                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                        <LockClosedIcon className="h-5 w-5 text-primary-800 group-hover:text-primary-400" aria-hidden="true" />
+                        <LockClosedIcon className="h-5 w-5 text-white group-hover:text-primary-400" aria-hidden="true" />
                     </span>
-                    Sign in
+                    <div className="CnxSpanText">Se connecter</div>
                 </button>
             </div>
             <div>
                 <div className="text-center">
                     <span>{membre}</span>
                     <Link to={URL_REGISTER} >
-                        <span className='font-medium text-primary-600 hover:text-primary-500 cursor-pointer text-center' >
+                        <span className='font-medium text-red-700 hover:text-primary-500 cursor-pointer text-center' >
                             Créer un compte
                         </span>
                     </Link>
@@ -80,20 +82,11 @@ const FormLogin = ({ submit, errorLog }) => (
  */
 const Login = (props) => {
     return (
-        <div className='bg-white p-4 rounded-md shadow max-w-md w-full space-y-8 py-12 px-4 sm:px-6 lg:px-8'>
+        <div className='cadreCnx bg-white p-4 rounded-md shadow space-y-8 py-12 px-4 sm:px-6 lg:px-8'>
             <div>
-                <div className='flex justify-center'>
-                    <img
-                        className="h-12 w-auto sm:h-10 cursor-pointer"
-                        src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
-                        alt=""
-                        width={200}
-                        height={60}
-                    />
-                </div>
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
+                <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-800 uppercase">
                     Se connecter à son compte
-                </h2>
+                </h1>
             </div>
             
             <hr />

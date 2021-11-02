@@ -80,7 +80,7 @@ const BoutiqueView = () => {
     return (
         <div className="container">
             <div className="flex">
-                <AsideFilter />
+                {/* <AsideFilter /> */}
                 <BoutiqueItem gundams={gundamArray} />
             </div>
         </div>

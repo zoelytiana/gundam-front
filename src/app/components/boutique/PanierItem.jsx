@@ -4,22 +4,22 @@ import classes from "./PanierItem.module.css"
 function PanierItem(props) {
     return (
         <div>
-            <p className={classes.panierTitle}>Mon panier ( 3 articles )</p>
-            <div className={classes.recapOrder}>
+            <h3>Mon panier ( 3 articles )</h3>
+            <div className="flex">
                 <div>
                     {props.gundams.map(gundam => {
                         return (
-                            <div className={classes.productList}>
+                            <div className="flex bg-white rounded p-1 my-11">
                                 <img src={gundam.image} alt={gundam.name} />
-                                <div className={classes.productListInfos}>
-                                    <h1>{gundam.name}</h1>
+                                <div className="p-0.5">
+                                    <h4>{gundam.name}</h4>
                                     <p>{gundam.description}</p>
                                 </div>
                             </div>
                         )
                     })}
                 </div>
-                <div className={classes.recapPrice}>
+                <div className="bg-white rounded p-1 mb-11">
                     <p className={classes.freeDelivery}>Pour tout commande supérieur à 150€, vous pouvez bénéficier de la livraison gratuite</p>
                     <p>Total</p>
                     <div>
@@ -35,8 +35,8 @@ function PanierItem(props) {
                         <p>Total TVA incluse</p>
                         <p>450€</p>
                     </div>
-                    <button>Procéder au paiment</button>
-                    <button>Continuer mes achats</button>
+                    <button className="btn-form"><p className="btn-form-text">Procéder au paiment</p></button>
+                    <button className="btn-form"><p className="btn-form-text">Continuer mes achats</p></button>
                 </div>
             </div>
             <button>Instruction de livraison</button>
