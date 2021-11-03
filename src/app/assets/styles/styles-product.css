@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: 'Roboto', sans-serif, 'arial';
   background-color: #C3C3C3;
   padding-top: 85px;
@@ -6,7 +6,7 @@ body {
 
 #container-product{
   width: 100%;
-}
+} */
 
 /* h1 {
   font-family: 'Poppins', sans-serif, 'arial';
@@ -24,7 +24,7 @@ body {
   line-height: 1.5;
 } */
 
-.product-name{
+/* .product-name{
     font-size: 16px;
     color: #313030;
     line-height: 1.5;
@@ -95,10 +95,10 @@ body {
 
 .flex-bas img{
   width: 50px;
-}
+} */
 
 /* image produit */
-#picture{
+/* #picture{
 	display: block;
 	position: relative;
 	width: 150px;
@@ -141,11 +141,11 @@ body {
 .box-product-bottom {
   width: 150px;
   background:white;
-  background-clip: content-box; /* <---- */
+  background-clip: content-box; 
   box-shadow:inset -3px -3px #ECECEC;
-}
+} */
 /* ///// inputs /////*/
-.box-cart{
+/* .box-cart{
   width: 200px;
   background-color: #FCFCFC;
   border-radius: 5px;
@@ -221,10 +221,10 @@ body {
 .titre-panier {        
   display: flex;
   align-items: center;
-}
+} */
 /* ///// inputs /////*/
 
-.flexCol{
+/* .flexCol{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -253,4 +253,4 @@ body {
   .styled-input {
       width:100%;
   }
-}
+} */

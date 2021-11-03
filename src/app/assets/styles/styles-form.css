@@ -19,12 +19,12 @@
   line-height: 1.5;
 } */
 
-.form-shadow{
+/* .form-shadow{
   box-shadow: 5px 5px 5px #444442;
-}
+} */
 /* ///// inputs /////*/
 
-input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+/* input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
   font-size: 0.75em;
   color: #999;
   top: -5px;
@@ -75,14 +75,14 @@ a{
   color : rgb(161, 139, 139);
   font-weight: bold;
   padding: .5rem 3.5rem;
-}
+} */
 
 /* 
 .btn-form:hover{
   background-color: blue;
 } */
 
-.btn-form-text{
+/* .btn-form-text{
   color:white;
   -webkit-transform: skew(-30deg);
   -moz-transform: skew(-30deg);
@@ -149,4 +149,4 @@ textarea {
 .note{
   font-size: 1rem;
   text-align: center;
-}
+} */

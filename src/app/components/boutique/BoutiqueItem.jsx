@@ -11,9 +11,9 @@ function boutiqueItem(props) {
                 {props.gundams.slice(0, 9).map(gundam => {
                     return (
                         <li className="m-px" key={gundam.id}>
-                            <div className="box-product-bottom w-28">
-                                <div className="box-product h-28">
-                                    <img src={gundam.image} alt={gundam.name} />
+                            <div className="box-product-bottom w-72">
+                                <div className="box-product h-72">
+                                    <img className="w-48" src={gundam.image} alt={gundam.name} />
                                 </div>
 
                             </div>
