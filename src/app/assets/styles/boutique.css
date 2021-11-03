@@ -19,5 +19,9 @@
 .boutiqueButton button {
     background-color: #F6CD35;
     margin-left: 0.3rem;
-    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+}
+
+.buttonCart {
+    width: 2rem;
+    height: 2rem;
 }
