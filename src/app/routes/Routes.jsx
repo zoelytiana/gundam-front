@@ -22,7 +22,10 @@ import {
             URL_ADRESSE,
             URL_CONTACT_FORM, 
             URL_LIVRAISON, 
-            URL_LISTEENVIES
+            URL_LISTEENVIES,
+            URL_TICKET,
+            URL_VALIDATION,
+            URL_CLAIM
         } from '../shared/constants/urls/urlConstants';
 
 import HomeView from '../views/HomeView';
@@ -49,6 +52,9 @@ import ForgotPasswordView from '../views/ForgotPasswordView';
 import ContactFormView from '../views/ContactFormView';
 import LivraisonView from '../views/LivraisonView';
 import ListeEnviesView from '../views/ListeEnvieView';
+import TicketView from '../views/TicketView';
+import ValidationView from '../views/ValidationView';
+import ClaimView from '../views/ClaimView';
 
 import { customHistory } from '../shared/services/historyServices';
 import AdminHomeView from '../views/AdminHomeView';
@@ -90,6 +96,9 @@ const Routes = () => {
             <Route path={URL_CONTACT_FORM} component={ContactFormView} />
             <Route path={URL_LIVRAISON} component={LivraisonView} />
             <Route path={URL_LISTEENVIES} component={ListeEnviesView} />
+            <Route path={URL_TICKET} component={TicketView} />
+            <Route path={URL_VALIDATION} component={ValidationView} />
+            <Route path={URL_CLAIM} component={ClaimView} />
 
             <Route path={URL_LOGIN} component={LoginView} />
             <Route path={URL_REGISTER} component={RegisterView} />
