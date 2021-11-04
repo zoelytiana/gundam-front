@@ -1,5 +1,5 @@
 import React from 'react'
-import './../assets/styles/styles-product.css';
+
 
 const PanierView = () => {
     return (

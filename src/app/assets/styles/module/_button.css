@@ -1,0 +1,22 @@
+ /* BUTTONS */
+
+ .btn-form {
+    background-color: #880c01;
+    -webkit-transform: skew(30deg);
+    -moz-transform: skew(30deg);
+    -o-transform: skew(30deg);
+    transform: skew(30deg);
+    color: rgb(161, 139, 139);
+    font-weight: bold;
+    padding: 0.5rem 3.5rem;
+}
+.btn-form:hover {
+    background-color: #5380b1;
+}
+.btn-form-text {
+    color: white;
+    -webkit-transform: skew(-30deg);
+    -moz-transform: skew(-30deg);
+    -o-transform: skew(-30deg);
+    transform: skew(-30deg);
+}

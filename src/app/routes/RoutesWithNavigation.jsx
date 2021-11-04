@@ -30,10 +30,10 @@ const RoutesWithNavigation = () => {
 
     return (
         <BrowserRouter>
-            <div className="min-h-full flex flex-col items-center justify-center bg-secondary-100 cursor-default">
+            <div className="min-h-full flex flex-col bg-secondary-100 cursor-default">
                 { isLogged && <IdleTimerCustom />}
                 <Navbar/>
-                <main>
+                <main className="flex items-center justify-center ">
                     <Routes/>
                 </main>
                 <ToastContainer 

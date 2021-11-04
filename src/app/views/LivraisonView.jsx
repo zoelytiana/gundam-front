@@ -5,7 +5,6 @@ import { authenticate } from './../api/backend/account';
 import { URL_HOME } from './../shared/constants/urls/urlConstants';
 import { isAuthenticated } from './../shared/services/accountServices';
 import Livraison from './../components/account/Livraison';
-import './../assets/styles/styles-form.css';
 
 
 /**

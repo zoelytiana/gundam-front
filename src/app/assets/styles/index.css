@@ -1,150 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer components {
-    /* @font-face {
-        font-family: 'Affirmative';
-        -moz-font-family: 'Affirmative';
-        -webkit-font-family: 'Affirmative';
-        -khtml-font-family: 'Affirmative';
-        -o-font-family: 'Affirmative';
-        src: url('../Font/Affirmative.otf')
-             url('../Font/Affirmative-Italic.ttf');
-
-        font-family: 'Mandalika';
-        -moz-font-family: 'Mandalika';
-        -webkit-font-family: 'Mandalika';
-        -khtml-font-family: 'Mandalika';
-        -o-font-family: 'Mandalika';
-        src: url('../Font/Mandalika.ttf');
-
-        font-family: 'Roboto';
-        -moz-font-family: 'Roboto';
-        -webkit-font-family: 'Roboto';
-        -khtml-font-family: 'Roboto';
-        -o-font-family: 'Roboto';
-        src: url('../Font/Roboto-Bold.ttf')
-             url('../Font/Roboto-Regular.ttf');
-        } */
-
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 13px;
-        font-weight: normal;
-        color: #404040;
-        margin: 0px;
-        padding: 0px;
-    }
-
-    h1 {
-        font-size: 40px;
-        font-weight: bold;
-    }
-
-    h2 {
-        font-size: 30px;
-        font-weight: bold;
-    }
-
-    h3 {
-        font-size: 24px;
-        font-weight: bold;
-    }
-
-    h4 {
-        font-size: 20px;
-    }
-
-    p {
-        font-family: "Mandali", sans-serif;
-        font-size: 14px;
-    }
-
-    .container {
-        margin-top: 90px;
-        padding: 60px 0px 40px 0px;
-    }
-
-    label {
-        margin-bottom: 0px !important;
-    }
-
-    /* LINKS */
-    .link {
-        @apply cursor-pointer text-base font-medium text-gray-500 hover:text-gray-900;
-    }
-
-    /* BUTTONS */
-
-    .btn-form {
-        background-color: #880c01;
-        -webkit-transform: skew(30deg);
-        -moz-transform: skew(30deg);
-        -o-transform: skew(30deg);
-        transform: skew(30deg);
-        color: rgb(161, 139, 139);
-        font-weight: bold;
-        padding: 0.5rem 3.5rem;
-    }
-    .btn-form:hover {
-        background-color: #5380b1;
-    }
-    .btn-form-text {
-        color: white;
-        -webkit-transform: skew(-30deg);
-        -moz-transform: skew(-30deg);
-        -o-transform: skew(-30deg);
-        transform: skew(-30deg);
-    }
-
-    .box-product {
-        height: 140px;
-        border-bottom: 3px solid #d9d9d9;
-        border-right: 3px solid #d9d9d9;
-        background: linear-gradient(to bottom right, transparent 50%, #d9d9d9 50.5%) bottom right/30px 30px no-repeat;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
-    }
-    .box-product img {
-        width: 10rem;
-        align-items: center;
-    }
-    .box-product-bottom {
-        width: 150px;
-        background: white;
-        background-clip: content-box; /* <---- */
-        box-shadow: inset -3px -3px #ececec;
-    }
-
-    /* INPUTS */
-    .input {
-        @apply appearance-none relative block w-full px-3 py-2 
-        border border-primary-200 placeholder-gray-500 rounded-md 
-        focus:outline-none focus:ring-primary-200 focus:border-primary-200 focus:z-20 sm:text-sm;
-    }
-    .input-error {
-        @apply ring-primary-100 border-primary-100 rounded-md font-bold focus:ring-primary-100 focus:border-primary-100 z-10 placeholder-primary-100;
-    }
-    .checkbox {
-        @apply h-4 w-4 text-primary-100 focus:ring-primary-100 border-none cursor-pointer;
-    }
-    .checkbox-error {
-        @apply border-primary-100 border-2;
-    }
-
+    @import url(./base/reset.css);
+    @import url(./module/_button.css);
+    @import url(./module/_box.css);
+    @import url(./module/_input.css);
+    @import url(./module/_animation.css);
+    @import url(./module/_link.css);
+    @import url(./layout/footer.css);
+    @import url(./layout/login.css);
+    @import url(./layout/register.css);
+    @import url(./layout/form.css);
+    @import url(./layout/products.css);
     /* GEOMETRY */
     .point {
         @apply w-4 h-4 mt-2 p-2 rounded-full;
     }
-}
-
-/* ANIMATION CSS */
-.anim-delay-100 {
-    animation-delay: 0.1s;
-}
-.anim-delay-300 {
-    animation-delay: 0.3s;
-}
-.anim-delay-600 {
-    animation-delay: 0.6s;
 }

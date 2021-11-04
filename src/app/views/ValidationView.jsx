@@ -1,6 +1,6 @@
 import React from 'react'
 import Validation from './../components/account/Validation';
-import './../assets/styles/styles-product.css';
+
 
 const PanierView = () => {
     return (

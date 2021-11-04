@@ -1,6 +1,6 @@
 import React from 'react'
 import Ticket from './../components/account/Ticket';
-import './../assets/styles/styles-product.css';
+
 
 const PanierView = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import Panier from './../components/account/Panier';
-import './../assets/styles/styles-product.css';
+
 
 const PanierView = () => {
     return (
