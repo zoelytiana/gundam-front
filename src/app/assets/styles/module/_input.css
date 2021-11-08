@@ -1,0 +1,18 @@
+
+
+    /* INPUTS */
+    .input {
+        @apply appearance-none relative block w-full px-3 py-2 
+        border border-primary-200 placeholder-gray-500 rounded-md 
+        focus:outline-none focus:ring-primary-200 focus:border-primary-200 focus:z-20 sm:text-sm;
+    }
+    .input-error {
+        @apply ring-primary-100 border-primary-100 rounded-md font-bold focus:ring-primary-100 focus:border-primary-100 z-10 placeholder-primary-100;
+    }
+    .checkbox {
+        @apply h-4 w-4 text-primary-100 focus:ring-primary-100 border-none cursor-pointer;
+    }
+    .checkbox-error {
+        @apply border-primary-100 border-2;
+    }
+   

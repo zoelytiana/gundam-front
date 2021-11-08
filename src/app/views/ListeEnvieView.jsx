@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react'
 import ListeEnvies from './../components/account/ListeEnvies';
-import './../assets/styles/styles-product.css';
 
 
 /**

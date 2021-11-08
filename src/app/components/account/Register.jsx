@@ -9,7 +9,7 @@ import ErrorMessSmall from './../../shared/components/form-and-error-components/
 import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 import { URL_CGU, URL_LOGIN } from '../../shared/constants/urls/urlConstants';
 
-import '../../assets/styles/register.css'
+
 
 /**
  * Component Form Login

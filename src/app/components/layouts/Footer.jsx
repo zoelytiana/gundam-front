@@ -7,7 +7,6 @@ import MasterCard from '../../assets/images/mode-de-paiement_0002_Calque1.jpg';
 import Paypal from '../../assets/images/mode-de-paiement_0001_Calque2.jpg';
 import Visa from '../../assets/images/mode-de-paiement_0000_Calque3.jpg';
 
-import '../../assets/styles/footer.css'
 
 import { Formik, Form, Field } from 'formik';
 import { defaulValuesNewsLetter } from './../../shared/constants/formik-yup/default-values-form/idefaultValuesNewsLetter';

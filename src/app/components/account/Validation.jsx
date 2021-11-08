@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import Product from './Product'
+import ProductValidation from './ProductValidation'
 import Total from './Total'
+import Information from "./Information";
+import BtnOrder from "./BntOrder";
 
 class Panier extends Component{
 
@@ -24,25 +26,29 @@ class Panier extends Component{
             <div className="flex-container">
                 <div className='flex-box'>
                     <div className='titre-panier'>
-                        <div><h2 onMouseOver={this.change} className="mt-6 text-left text-3xl font-extrabold">MON PANIER (nb articles) </h2></div>
+                        <div><h2 onMouseOver={this.change} className="mt-6 text-left text-3xl font-extrabold">CONFIRMATION DE COMMANDE </h2></div>
                     </div>
-                    
+                    <p>VOTRE COMMANDE A ETE ENREGISTRE</p>
                     <div className='flex'>
                         <div className='flex-box'>
     
                         {
                             this.state.produit.map((produit, index)=>{
                                 return(
-                                <Product key={index} name={produit.name} prix={produit.prix} picture={produit.picture}/>
+                                <ProductValidation key={index} name={produit.name} prix={produit.prix} picture={produit.picture}/>
                             )
                         })
                         }
                         </div>
                         <div className='panier-total'>
-                            <Total/>
+                            <Information/>
                         </div>
                     </div>
-                
+                <div>
+                    <Total/>
+                    <BtnOrder/>
+                </div>
+
                 </div>
             </div>
         )

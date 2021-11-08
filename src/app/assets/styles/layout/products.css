@@ -68,7 +68,7 @@
 }
 
 .flex-container{
-  background-color: #ECECEC;
+  background-color: #FFFFFF;
   padding: 1rem;
 }
 
@@ -128,22 +128,6 @@
   width: 0;
 }
 
-.box-product {
-  height:140px;
-  border-bottom: 3px solid #D9D9D9;
-  border-right: 3px solid #D9D9D9;
-  background:
-    linear-gradient(to bottom right,transparent 50%,#D9D9D9 50.5%) 
-    bottom right/30px 30px no-repeat;
-  clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%, 0 100%); 
-}
-
-.box-product-bottom {
-  width: 150px;
-  background:white;
-  background-clip: content-box; 
-  box-shadow:inset -3px -3px #ECECEC;
-} */
 /* ///// inputs /////*/
 /* .box-cart{
   width: 200px;
@@ -153,7 +137,7 @@
 
 .panier-total{
   padding: 2rem 2rem;
-  width: 20rem;
+  width: 100%;
 }
 
 .panier-product{
@@ -174,9 +158,11 @@
 }
 
 .info{
-  width: 16rem;
+  width: 100%;
   padding: 1rem 1rem;
   background-color: #A8BFD7;
+  text-align: center;
+  font-weight: bold;
 }
 
 .panier-select{
@@ -221,7 +207,45 @@
 .titre-panier {        
   display: flex;
   align-items: center;
-} */
+}
+/*ticket*/
+
+.panier-product-ticket{
+  padding : 1rem;
+  background-color: #ECECEC;
+  margin: 10px 0px;
+  border-radius: 20px;
+}
+
+.btn-ticket{
+  background-color: #ECECEC;
+  color : rgb(161, 139, 139);
+  font-weight: bold;
+  padding: .25rem .25rem;
+  border-radius: 4px;
+}
+
+.btn-ticket:hover{
+  background-color: blue;
+}
+
+.product-price-ticket{
+  font-size: 12px;
+  color: #313030;
+  line-height: 1.5;
+  text-align: left;
+  font-weight: bold;
+}
+
+.panier-product-desc-ticket{
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-end;
+  padding: 10px 10px;
+  width:250px;
+  border-radius: 0 0 5px 5px;
+  text-align: left;
+}
 /* ///// inputs /////*/
 
 /* .flexCol{

@@ -10,7 +10,6 @@ import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-er
 
 import { URL_FORGOTPASSWORD, URL_REGISTER } from './../../shared/constants/urls/urlConstants';
 
-import '../../assets/styles/login.css'
 
 /**
  * Component Form Login
