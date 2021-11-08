@@ -6,7 +6,7 @@ import cart from "./../../assets/images/cart.png";
 
 function boutiqueItem(props) {
     return (
-        <div className="boutiqueCard">
+        <div className="flex justify-center">
             <ul className="grid grid-cols-3">
                 {props.gundams.slice(0, 9).map(gundam => {
                     return (

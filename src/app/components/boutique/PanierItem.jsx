@@ -1,5 +1,4 @@
 import React from 'react';
-import classes from "./PanierItem.module.css";
 import visa from "./../../assets/images/mode-de-paiement_0000_Calque3.jpg";
 import paypal from "./../../assets/images/mode-de-paiement_0001_Calque2.jpg";
 import mastercard from "./../../assets/images/mode-de-paiement_0002_Calque1.jpg";
