@@ -66,6 +66,35 @@ a{
 	min-width: 300px;
 }
 
+<<<<<<< HEAD:src/app/assets/styles/layout/form.css
+=======
+<<<<<<< HEAD
+.btn-form{
+  background-color: rgba(136, 12, 1, 1 );
+	-webkit-transform:skew(30deg);
+	-moz-transform:skew(30deg);
+	-o-transform:skew(30deg);
+	transform:skew(30deg);
+  color : rgb(161, 139, 139);
+  font-weight: bold;
+  padding: .5rem 3.5rem;
+} */
+
+/* 
+.btn-form:hover{
+  background-color: blue;
+} */
+
+/* .btn-form-text{
+  color:white;
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  transform:skew(-30deg);
+}
+=======
+>>>>>>> dev
+>>>>>>> dev:src/app/assets/styles/styles-form.css
 
 @media only screen and (max-width: 768px){
   .styled-input {
