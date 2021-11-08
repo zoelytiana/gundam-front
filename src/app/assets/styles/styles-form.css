@@ -1,0 +1,155 @@
+/* h1 {
+  font-weight: 600;
+  font-size: 72px;
+  color: white;
+  text-align: center;
+} */
+
+/* h2 {
+  font-weight: 600;
+  font-size: 48px;
+  color: #880C01;
+  text-align: center;
+} */
+
+/* h4 {
+  font-weight: 400;
+  font-size: 20px;
+  color: #9b9b9b;
+  line-height: 1.5;
+} */
+
+/* .form-shadow{
+  box-shadow: 5px 5px 5px #444442;
+} */
+/* ///// inputs /////*/
+
+/* input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+  font-size: 0.75em;
+  color: #999;
+  top: -5px;
+  -webkit-transition: all 0.225s ease;
+  transition: all 0.225s ease;
+}
+
+.bg-form{
+  background-color: #ECECEC;
+}
+
+
+.flexForm{
+	display: flex;
+	flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem;
+}
+
+a{
+  color:#880C01;
+}
+
+.styled-input {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.flexCol{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+  width: 100%;
+}
+
+.flexCol input{
+  width: 100%;
+	min-width: 300px;
+}
+
+<<<<<<< HEAD
+.btn-form{
+  background-color: rgba(136, 12, 1, 1 );
+	-webkit-transform:skew(30deg);
+	-moz-transform:skew(30deg);
+	-o-transform:skew(30deg);
+	transform:skew(30deg);
+  color : rgb(161, 139, 139);
+  font-weight: bold;
+  padding: .5rem 3.5rem;
+} */
+
+/* 
+.btn-form:hover{
+  background-color: blue;
+} */
+
+/* .btn-form-text{
+  color:white;
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  transform:skew(-30deg);
+}
+=======
+>>>>>>> dev
+
+@media only screen and (max-width: 768px){
+  .styled-input {
+      width:100%;
+  }
+}
+
+label {
+  color: #999;
+  padding: 0.3rem 10px 1rem 30px;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  pointer-events: none;
+    display: inline-block;
+    text-align: left;
+  }
+
+
+input,
+textarea {
+  padding: 30px;
+  border-color: rgba(136, 12, 1,1 );
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+input[type=checkbox], input[type=radio] {
+  border-color: rgba(136, 12, 1,1 );
+  box-sizing: border-box;
+  padding: 5px;
+  margin-top: -10px;
+}
+
+input:focus,
+textarea:focus { outline: 0; }
+
+input:focus ~ span,
+textarea:focus ~ span {
+  width: 100%;
+  -webkit-transition: all 0.075s ease;
+  transition: all 0.075s ease;
+}
+
+textarea {
+  width: 100%;
+  min-height: 15em;
+}
+
+.center-div{
+  margin: 0 auto;
+  width: 100px;
+}
+.text-center{
+  text-align: center;
+}
+
+.note{
+  font-size: 1rem;
+  text-align: center;
+} */
