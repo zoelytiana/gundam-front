@@ -5,10 +5,7 @@
     background: linear-gradient(to bottom right, transparent 50%, #d9d9d9 50.5%) bottom right/30px 30px no-repeat;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
 }
-.box-product img {
-    width: 10rem;
-    align-items: center;
-}
+
 .box-product-bottom {
     width: 150px;
     background: white;

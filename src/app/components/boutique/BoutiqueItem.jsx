@@ -5,15 +5,18 @@ import view from "./../../assets/images/view.png";
 import cart from "./../../assets/images/cart.png";
 
 function boutiqueItem(props) {
+    if(props.loading) {
+        return <h2>Loading...</h2>
+    }
     return (
         <div className="flex justify-center">
             <ul className="grid grid-cols-3">
-                {props.gundams.slice(0, 9).map(gundam => {
+                {props.gundams.map(gundam => {
                     return (
                         <li className="m-4" key={gundam.id}>
                             <div className="box-product-bottom w-72">
-                                <div className="box-product h-72">
-                                    <img className="w-48" src={gundam.image} alt={gundam.name} />
+                                <div className="box-product h-72 flex justify-center items-center">
+                                    <img className="w-48 h-48" src={gundam.image} alt={gundam.name} />
                                 </div>
 
                             </div>
@@ -21,6 +24,7 @@ function boutiqueItem(props) {
                                 <div className="flex flex-col items-center">
                                     <h4 className="font-bold">{gundam.name}</h4>
                                     <p>{gundam.price}€</p>
+                                    <p>{gundam.id}</p>
                                 </div>
                                 <div className="flex justify-end items-center">
                                     <Link className="ml-1" to={URL_DETAIL}>

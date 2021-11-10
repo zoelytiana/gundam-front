@@ -1,36 +1,4 @@
-body {
-    font-family: "Roboto", sans-serif;
-    font-size: 13px;
-    font-weight: normal;
-    color: #404040;
-    margin: 0px;
-    padding: 0px;
-}
-
-h1 {
-    font-size: 40px;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-h4 {
-    font-size: 20px;
-}
-
-p {
-    font-family: "Mandali", sans-serif;
-    font-size: 14px;
-}
-    
+  
 .container {
     margin-top: 90px;
     padding: 60px 0px 40px 0px;

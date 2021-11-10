@@ -4,14 +4,18 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors:{
-        primary:{
+      fontFamily: {
+        'body': ['Roboto', 'sans-serif'],
+        'text': ['Mandali', 'sans-serif'],
+      },
+      colors: {
+        primary: {
           '100': '#880c01',
           '200': '#5380B1',
           '300': '#F6CD35',
           '400': '#404040',
         },
-        secondary:{
+        secondary: {
           '100': '#F5F5F5',
         }
       }

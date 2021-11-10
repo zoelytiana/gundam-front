@@ -1,88 +1,54 @@
+import axios from 'axios';
 import React from 'react';
+import { useEffect, useState } from 'react';
 import BoutiqueItem from '../components/boutique/BoutiqueItem';
-
-const gundamArray = [
-    {
-        id: 1,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 100,
-    },
-    {
-        id: 2,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 45,
-    },
-    {
-        id: 3,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 79,
-    },
-    {
-        id: 4,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 100,
-    },
-    {
-        id: 5,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 45,
-    },
-    {
-        id: 6,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 79,
-    },
-    {
-        id: 7,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 100,
-    },
-    {
-        id: 8,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 45,
-    }, {
-        id: 9,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 79,
-    },
-    {
-        id: 10,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 100,
-    },
-    {
-        id: 11,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 45,
-    }, {
-        id: 12,
-        image: "https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg",
-        name: "Gundam RX-78-2",
-        price: 79,
-    },
-
-]
+import Pagination from '../components/layouts/Pagination';
 
 const BoutiqueView = () => {
+    const [gundams, setGundams] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [products, setProducts] = useState(9);
+    useEffect(() => {
+        const fetchProduct = async () => {
+            setLoading(true);
+            const res = await axios.get('http://localhost:8000/gundams');
+            setGundams(res.data);
+            setLoading(false)
+        }
+        fetchProduct()
+        // fetch('http://localhost:8000/gundams')
+        //     .then(res => {
+        //         return res.json()
+        //     })
+        //     .then(data => {
+        //         console.log(data)
+        //         setGundams(data)
+        //     })
+    }, []);
+
+    //controler le nombre de produits par page par l'intermédiaire des usestate current page et products
+    const indexOfLastPost = currentPage * products;
+    const indexOfFirstPost = indexOfLastPost - products;
+    const currentProducts = gundams.slice(indexOfFirstPost, indexOfLastPost)
+
+    //Changement de page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
     return (
         <div className="container">
             <div>
-                <BoutiqueItem gundams={gundamArray} />
+                <BoutiqueItem gundams={currentProducts} loading={loading}/>
+                <Pagination 
+                products={products} 
+                totalPage={gundams.length} 
+                paginate={paginate}
+                />
             </div>
         </div>
+        
     )
+    
 }
 
 export default BoutiqueView

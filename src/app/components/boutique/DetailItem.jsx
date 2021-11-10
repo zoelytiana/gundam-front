@@ -29,7 +29,9 @@ const DetailItem = (props) => {
                             <h3 className="m-2">+</h3>
                         </div>
                         <Link to={URL_PANIER}>
-                            <button className="btn-form"><p className="btn-form-text">Ajouter au panier</p></button>
+                            <button className="btn-form">
+                                <p className="btn-form-text">Ajouter au panier</p>
+                            </button>
                         </Link>
                     </div>
                 </div>

@@ -33,7 +33,7 @@ const RoutesWithNavigation = () => {
             <div className="min-h-full flex flex-col bg-secondary-100 cursor-default">
                 { isLogged && <IdleTimerCustom />}
                 <Navbar/>
-                <main className="flex items-center justify-center ">
+                <main>
                     <Routes/>
                 </main>
                 <ToastContainer 
