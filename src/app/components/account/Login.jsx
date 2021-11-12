@@ -27,7 +27,11 @@ import Modal from './Modal';
 
 const membre = "Vous n'êtes pas encore membre ? "
 
-const FormLogin = ({submit, errorLog, openModal, toggleModal}) => {
+const FormLogin = ({submit, errorLog}) => {
+    const [openModal, setOpenModal] = useState(false);
+    const toggleModal = () => {
+        setOpenModal(true)
+    }
     <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormLogin}>
         <Form className='mt-8 space-y-6'>
             <div className='rounded-md shadow-sm -space-y-px'>
@@ -86,10 +90,7 @@ const FormLogin = ({submit, errorLog, openModal, toggleModal}) => {
  * @author Peter Mollet
  */
 const Login = (props) => {
-    const [openModal, setOpenModal] = useState(false);
-    const toggleModal = () => {
-        setOpenModal(true)
-    }
+    
 
 
     return (
