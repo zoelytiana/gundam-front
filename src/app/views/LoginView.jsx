@@ -6,6 +6,7 @@ import { URL_HOME } from './../shared/constants/urls/urlConstants';
 import { isAuthenticated } from './../shared/services/accountServices';
 import Login from './../components/account/Login';
 
+
 /**
  * View/Page Login
  * 
@@ -17,6 +18,8 @@ import Login from './../components/account/Login';
     const [errorLog, setErrorLog] = useState(false)
     const dispatch = useDispatch()
 
+   
+
     const handleLogin = (values) => {
         authenticate(values).then(res => {
             if(res.status === 200 && res.data.id_token) {
@@ -26,10 +29,12 @@ import Login from './../components/account/Login';
         }).catch(() => setErrorLog(true))
     }
 
+
     return (
         <div className="container">
             <div className="max-w-7xl mx-auto">
                 <Login submit={handleLogin} errorLog={errorLog} />
+                
             </div>
         </div>
     );
