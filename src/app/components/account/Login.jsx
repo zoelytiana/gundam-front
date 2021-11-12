@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { LockClosedIcon } from '@heroicons/react/solid'
 import { Link } from 'react-router-dom';
@@ -9,6 +9,8 @@ import ErrorMessSmall from './../../shared/components/form-and-error-components/
 import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 
 import { URL_FORGOTPASSWORD, URL_REGISTER } from './../../shared/constants/urls/urlConstants';
+
+import Modal from "./Modal";
 
 
 /**
@@ -23,27 +25,24 @@ import { URL_FORGOTPASSWORD, URL_REGISTER } from './../../shared/constants/urls/
  */
 const membre = "Vous n'êtes pas encore membre ? "
 
-const FormLogin = ({ submit, errorLog }) => (
+const FormLogin = ({ submit, errorLog, openModal, toggleModal }) => (
     <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormLogin}>
         <Form className='mt-8 space-y-6'>
             <div className='rounded-md shadow-sm -space-y-px'>
-                <Field type="email" name="email" placeholder="Login" 
-                component={ CustomInput } className='rounded-none my-3' noError/>
-                <Field type='password' name='password' placeholder='Password' 
-                component={ CustomInput } className='rounded-none my-3' noError/>
+                <Field type="email" name="email" placeholder="Login"
+                    component={CustomInput} className='rounded-none my-3' noError />
+                <Field type='password' name='password' placeholder='Password'
+                    component={CustomInput} className='rounded-none my-3' noError />
             </div>
 
             <div className="flex items-center justify-between">
                 <Field name='rememberMe' label='Se souvenir de moi' component={CustomCheckbox} value={true} />
                 <div className="text-sm">
-                    <Link to={URL_FORGOTPASSWORD} >
-                        <span className='font-medium text-red-700 hover:text-primary-500 cursor-pointer' >
-                            Mot de passe oublié ?
-                        </span>
-                    </Link>
+                    <button onClick={() => toggleModal()} >Mot de passe Oublié?</button>
+                    <Modal toggleModal={openModal}/>
                 </div>
             </div>
-            
+
             <div className="flex justify-center">
                 <button type="submit" className="CnxBtn">
                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -62,7 +61,7 @@ const FormLogin = ({ submit, errorLog }) => (
                     </Link>
                 </div>
             </div>
-            { errorLog && <ErrorMessSmall middle message="Login/Password incorrect(s)" /> }
+            {errorLog && <ErrorMessSmall middle message="Login/Password incorrect(s)" />}
         </Form>
     </Formik>
 )
@@ -80,6 +79,10 @@ const FormLogin = ({ submit, errorLog }) => (
  * @author Peter Mollet
  */
 const Login = (props) => {
+    const [openModal, setOpenModal] = useState(false);
+    const toggleModal = () => {
+        setOpenModal(true)
+    }
     return (
         <div className='cadreCnx bg-white p-4 rounded-md shadow space-y-8 py-12 px-4 sm:px-6 lg:px-8'>
             <div>
@@ -87,7 +90,7 @@ const Login = (props) => {
                     Se connecter à son compte
                 </h1>
             </div>
-            
+
             <hr />
             <FormLogin {...props} />
         </div>
