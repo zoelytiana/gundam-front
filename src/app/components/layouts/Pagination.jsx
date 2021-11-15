@@ -7,11 +7,11 @@ function Pagination({ products, totalPage, paginate }) {
         pageNumber.push(i)
     }
     return (
-        <nav className={classes.paginationConteiner}>
-            <ul>
+        <nav aria-label="Pagination">
+            <ul className="flex justify-center m-11">
                 {pageNumber.map(number => (
                     <li key={number}>
-                        <a onClick={() => paginate(number)} href="#">{number}</a>
+                        <a className="bg-white m-4 border-2 border-black items-center px-3 py-2 text-2xl" onClick={() => paginate(number)} href="#">{number}</a>
                     </li>
                 ))}
             </ul>

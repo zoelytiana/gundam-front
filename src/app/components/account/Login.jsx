@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Formik, Form, Field } from 'formik';
 import { LockClosedIcon } from '@heroicons/react/solid'
 import { Link } from 'react-router-dom';
@@ -10,7 +9,9 @@ import ErrorMessSmall from './../../shared/components/form-and-error-components/
 import { CustomCheckbox, CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 
 import { URL_FORGOTPASSWORD, URL_REGISTER } from './../../shared/constants/urls/urlConstants';
-import Modal from './Modal';
+
+import Modal from "./Modal";
+
 
 /**
  * Component Form Login
@@ -27,55 +28,48 @@ import Modal from './Modal';
 
 const membre = "Vous n'êtes pas encore membre ? "
 
-const FormLogin = ({submit, errorLog}) => {
-    const [openModal, setOpenModal] = useState(false);
-    const toggleModal = () => {
-        setOpenModal(true)
-    }
-    <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormLogin}>
-        <Form className='mt-8 space-y-6'>
-            <div className='rounded-md shadow-sm -space-y-px'>
-                <Field type="email" name="email" placeholder="Login"
-                    component={CustomInput} className='rounded-none my-3' noError />
-                <Field type='password' name='password' placeholder='Password'
-                    component={CustomInput} className='rounded-none my-3' noError />
-            </div>
+const FormLogin = ({ submit, errorLog, setOpenModal }) => (
 
-            <div className="flex items-center justify-between">
-                <Field name='rememberMe' label='Se souvenir de moi' component={CustomCheckbox} value={true} />
-                <div className="text-sm">
-                    <button onClick={() => toggleModal()} >Mot de passe oublié ?</button>
-                    <Modal toggleModal={openModal} />
+        <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormLogin}>
+            <Form className='mt-8 space-y-6'>
+                <div className='rounded-md shadow-sm -space-y-px'>
+                    <Field type="email" name="email" placeholder="Login"
+                        component={CustomInput} className='rounded-none my-3' noError />
+                    <Field type='password' name='password' placeholder='Password'
+                        component={CustomInput} className='rounded-none my-3' noError />
                 </div>
-            </div>
 
-            <div className="flex justify-center">
-                <button type="submit" className="CnxBtn">
-                    <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                        <LockClosedIcon className="h-5 w-5 text-white group-hover:text-primary-400" aria-hidden="true" />
-                    </span>
-                    <div className="CnxSpanText">Se connecter</div>
-                </button>
-            </div>
-            <div>
-                <div className="text-center">
-                    <span>{membre}</span>
-                    <Link to={URL_REGISTER} >
-                        <span className='font-medium text-red-700 hover:text-primary-500 cursor-pointer text-center' >
-                            Créer un compte
+                <div className="flex items-center justify-between">
+                    <Field name='rememberMe' label='Se souvenir de moi' component={CustomCheckbox} value={true} />
+                    <div className="text-sm">
+                        <button onClick={() => setOpenModal(true)} >Mot de passe Oublié?</button>
+
+                    </div>
+                </div>
+
+                <div className="flex justify-center">
+                    <button type="submit" className="CnxBtn">
+                        <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <LockClosedIcon className="h-5 w-5 text-white group-hover:text-primary-400" aria-hidden="true" />
                         </span>
-                    </Link>
+                        <div className="CnxSpanText">Se connecter</div>
+                    </button>
                 </div>
-            </div>
-            {errorLog && <ErrorMessSmall middle message="Login/Password incorrect(s)" />}
-        </Form>
-    </Formik>
-}
+                <div>
+                    <div className="text-center">
+                        <span>{membre}</span>
+                        <Link to={URL_REGISTER} >
+                            <span className='font-medium text-red-700 hover:text-primary-500 cursor-pointer text-center' >
+                                Créer un compte
+                            </span>
+                        </Link>
+                    </div>
+                </div>
+                {errorLog && <ErrorMessSmall middle message="Login/Password incorrect(s)" />}
+            </Form>
+        </Formik>
 
-// const FormLogin = ({ submit, errorLog }) => (
-
-
-// )
+)
 
 /**
  * Component Login
@@ -90,9 +84,7 @@ const FormLogin = ({submit, errorLog}) => {
  * @author Peter Mollet
  */
 const Login = (props) => {
-    
-
-
+    const [openModal, setOpenModal] = useState(false);
     return (
         <div className='cadreCnx bg-white p-4 rounded-md shadow space-y-8 py-12 px-4 sm:px-6 lg:px-8'>
             <div>
@@ -102,7 +94,8 @@ const Login = (props) => {
             </div>
 
             <hr />
-            <FormLogin {...props} />
+            <FormLogin {...props} setOpenModal={setOpenModal} />
+            <Modal toggleModal={openModal} setToggleModal={setOpenModal}/>
         </div>
     );
 };
