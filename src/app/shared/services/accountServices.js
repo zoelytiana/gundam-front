@@ -19,7 +19,9 @@ export function accountRoles() {
  */
 export function accountLogin(){
     const payload = getPayloadToken()
-    return payload.sub
+    console.log('payload', payload)
+    //return payload.sub
+    return payload.email
 }
 
 export function hasRole(role) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { URL_HOME, URL_LOGIN, URL_REGISTER, URL_BOUTIQUE, URL_ENVIE, URL_PRESENTATION, URL_CONTACT } from './../../shared/constants/urls/urlConstants';
+import { URL_HOME, URL_LOGIN, URL_REGISTER, URL_BOUTIQUE, URL_ENVIE, URL_PRESENTATION, URL_CONTACT, URL_ACCOUNT } from './../../shared/constants/urls/urlConstants';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsLogged, signOut } from './../../shared/redux-store/authenticationSlice';
 
@@ -61,12 +61,20 @@ const MenuBtn = () => {
 
 const ConnectionBtn = () => {
     const isLogged = useSelector(selectIsLogged)
+    console.log('islogged :',isLogged)
     const dispatch = useDispatch()
     if(isLogged)
     return(
+        <>
+        <Link to={URL_ACCOUNT}>
+                <div className='link'>
+                    Mon compte
+                </div>
+        </Link>
         <button className="ml-8 btn btn-green" onClick={() => dispatch(signOut())}>
             Sign out
         </button>
+        </>
     )
     else return(
         <>

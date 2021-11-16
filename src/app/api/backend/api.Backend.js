@@ -7,9 +7,17 @@ import handleHttpError from './../../shared/components/form-and-error-components
  * 
  * @author Peter Mollet
  */
-const apiBackEnd = axios.create({
+/*const apiBackEnd = axios.create({
     baseURL: process.env.REACT_APP_BACKEND_URL
 })
+export default apiBackEnd;*/
+
+//Export du fichier
+const apiBackEnd = axios.create({
+    //Appel de url de base de json_server
+    baseURL: "http://localhost:8000",
+    header : "Content-Type: application/json"
+});
 export default apiBackEnd;
 
 /**
