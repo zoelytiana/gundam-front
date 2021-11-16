@@ -27,7 +27,7 @@ function boutiqueItem(props) {
                                     <p>{gundam.id}</p>
                                 </div>
                                 <div className="flex justify-end items-center">
-                                    <Link className="ml-1" to={URL_DETAIL}>
+                                    <Link className="ml-1" to={URL_DETAIL + `?id=${gundam.id}`}>
                                         <button><img className="w-6 h-6" src={view} alt="" /></button>
                                     </Link>
                                     <Link className="ml-2" to={URL_PANIER}>

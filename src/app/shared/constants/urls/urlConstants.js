@@ -4,7 +4,7 @@ export const URL_REGISTER = '/register'
 export const URL_ADMIN_HOME = '/admin'
 
 export const URL_BOUTIQUE = '/boutique'
-export const URL_DETAIL = '/detail/:productID'
+export const URL_DETAIL = '/detail'
 export const URL_PANIER = '/panier'
 export const URL_ENVIE = '/envie'
 export const URL_PRESENTATION = '/presentation'
