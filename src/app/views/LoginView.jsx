@@ -19,8 +19,9 @@ import Login from './../components/account/Login';
 
     const handleLogin = (values) => {
         authenticate(values).then(res => {
-            if(res.status === 200 && res.data.id_token) {
-                dispatch(signIn(res.data.id_token))
+            console.log('res:', res.data)
+            if(res.status === 200 && res.data.access_token) {
+                dispatch(signIn(res.data.access_token))
                 if(isAuthenticated) history.push(URL_HOME)
             }
         }).catch(() => setErrorLog(true))

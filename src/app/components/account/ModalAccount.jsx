@@ -23,7 +23,7 @@ function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
                                 <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                     <div class="mt-2">
                                         <p class="text-sm text-gray-500">
-                                        <Formik onSubmit={submit} validationSchema={schemaFormAccount } initialValues={currentAccount[0]}>
+                                        <Formik onSubmit={submit} validationSchema={schemaFormAccount} initialValues={currentAccount[0]}>
                                             <Form className='mt-8 space-y-6'>
                                                 <h2>Mes Informations <a href='#' className="text-red-700" onClick={() => setToggleModal(!toggleModal)}> <XIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
                                                 

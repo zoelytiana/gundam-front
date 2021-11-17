@@ -58,9 +58,7 @@ const FormAccount = ({ submit, submitPassword, errorLog, currentAccount}) => {
             <h2>Mon mot de passe <a href='#' className="text-red-700" onClick={() => setOpenModalPassword(true)}> <PencilAltIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
             <fieldset disabled>
             <div className='shadow-sm -space-y-px'>
-                <input type="password" placeholder={currentAccount[0].password} className='rounded-none my-3'/>
-                <input type='text' placeholder='Nouveau Password' className='rounded-none my-3'/>
-                <input type='text' placeholder='Confirmation password' className='rounded-none my-3' />
+                <input type="password" placeholder={currentAccount[0].password} className='rounded-none my-3'/>                
             </div>
             </fieldset>
             <ModalAccountPassword toggleModal={openModalPassword} setToggleModal={setOpenModalPassword} submit={submitPassword} currentAccount={currentAccount} />
