@@ -4,15 +4,15 @@ import { useParams } from 'react-router-dom';
 import DetailItem from '../components/boutique/DetailItem';
 
 const DetailView = () => {
-    const [gundams, setGundams] = useState([]);
+    const [gundam, setGundam] = useState([]);
     const [loading, setLoading] = useState(true);
     const {id}  = useParams();
     
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const res = await axios.get(`http://localhost:8000/gundams/:id=${id}`);
-            setGundams(res.data);
+            const res = await axios.get(`http://localhost:8000/gundams/${id}`);
+            setGundam(res.data);
             setLoading(false)
         }
         fetchProduct()
@@ -20,7 +20,7 @@ const DetailView = () => {
 
     return (
         <div className="container">
-            <DetailItem gundams={gundams} />
+            <DetailItem gundam={gundam} />
         </div>
     )
 }

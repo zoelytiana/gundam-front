@@ -75,7 +75,7 @@ const Routes = () => {
 
             <Route exact path={URL_HOME} component={HomeView} />
             <Route path={URL_BOUTIQUE} component={BoutiqueView} />
-            <Route path={URL_DETAIL} component={DetailView} />
+            <Route path={URL_DETAIL + "/:id"} component={DetailView} />
             <Route path={URL_PANIER} component={PanierView} />
             <Route path={URL_ENVIE} component={EnvieView} />
             <Route path={URL_PRESENTATION} component={PresentationView} />

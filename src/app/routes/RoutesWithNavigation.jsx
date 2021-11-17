@@ -31,6 +31,7 @@ const RoutesWithNavigation = () => {
     return (
         <BrowserRouter>
             <div className="min-h-full flex flex-col bg-secondary-100 cursor-default">
+                {/* pour déconnecter si user inactif */}
                 { isLogged && <IdleTimerCustom />}
                 <Navbar/>
                 <main>

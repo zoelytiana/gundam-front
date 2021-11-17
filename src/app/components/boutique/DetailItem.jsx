@@ -4,15 +4,17 @@ import { URL_PANIER } from './../../shared/constants/urls/urlConstants';
 import heart from "./../../assets/images/heart.png";
 import stars from "./../../assets/images/stars.png";
 
-const DetailItem = ({gundams}) => {
+const DetailItem = ({ gundam }) => {
     return (
-        <div className="flex flex-col items-center my-11">
-            <div className="xl:flex justify-around">
-                <img className="w-3/4 m-11" src="https://static.fnac-static.com/multimedia/Images/FR/MC/74/eb/e1/14805876/1540-1/tsp20151016173224/Mobile-Suit-Gundam-figurine-Model-Kit-Real-Grade-RX-78-2-Gundam-13-cm.jpg" alt="Gundam RX-78-2" />
+        <div className="flex flex-col items-center my-40">
+            <div className="flex flex-col items-center md:flex md:flex-row md:justify-around">
 
-                <div className="flex flex-col items-center justify-center bg-white p-8 rounded text-center w-3/4 m-11">
-                    <h1 className="m-4">{gundams.name}</h1>
-                    <h2 className="font-thin">{gundams.price}</h2>
+                <img className="md:w-2/5 w-4/5" src={gundam.image} alt={gundam.name} />
+
+
+                <div className="flex flex-col items-center justify-center bg-white p-8 rounded text-center md:w-2/5 w-4/5">
+                    <h1 className="m-4">{gundam.name}</h1>
+                    <h2 className="font-thin">{gundam.price}€</h2>
                     <img className="m-4" src={heart} alt="heart logo" />
                     <div className="grid grid-cols-3 items-center">
                         <div className="btn-form" >
@@ -37,7 +39,7 @@ const DetailItem = ({gundams}) => {
                 </div>
             </div>
 
-            <div className="w-7/12 text-center p-8 m-8 rounded bg-white">
+            <div className="lg:w-7/12 w-4/5 text-center p-8 lg:m-8 rounded bg-white">
                 <h3>Description</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic repellat ullam cum vitae consequatur laudantium similique ipsum praesentium totam soluta sapiente debitis, unde explicabo nemo dolore nostrum perspiciatis, provident quo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic repellat ullam cum vitae consequatur laudantium similique ipsum praesentium totam soluta sapiente debitis, unde explicabo nemo dolore nostrum perspiciatis, provident quo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic repellat ullam cum vitae consequatur laudantium similique ipsum praesentium totam soluta sapiente debitis, unde explicabo nemo dolore nostrum perspiciatis, provident quo.</p>
             </div>

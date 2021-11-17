@@ -9,7 +9,7 @@ function boutiqueItem(props) {
         return <h2>Loading...</h2>
     }
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center my-40">
             <ul className="grid grid-cols-3">
                 {props.gundams.map(gundam => {
                     return (
@@ -27,7 +27,7 @@ function boutiqueItem(props) {
                                     <p>{gundam.id}</p>
                                 </div>
                                 <div className="flex justify-end items-center">
-                                    <Link className="ml-1" to={URL_DETAIL + `?id=${gundam.id}`}>
+                                    <Link className="ml-1" to={URL_DETAIL + `/${gundam.id}`}>
                                         <button><img className="w-6 h-6" src={view} alt="" /></button>
                                     </Link>
                                     <Link className="ml-2" to={URL_PANIER}>
