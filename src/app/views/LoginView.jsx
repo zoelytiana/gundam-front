@@ -24,9 +24,10 @@ const LoginView = ({ history }) => {
 
     const handleLogin = (values) => {
         authenticate(values).then(res => {
-            if (res.status === 200 && res.data.id_token) {
-                dispatch(signIn(res.data.id_token))
-                if (isAuthenticated) history.push(URL_HOME)
+            console.log('res:', res.data)
+            if(res.status === 200 && res.data.access_token) {
+                dispatch(signIn(res.data.access_token))
+                if(isAuthenticated) history.push(URL_HOME)
             }
         }).catch(() => setErrorLog(true))
     }

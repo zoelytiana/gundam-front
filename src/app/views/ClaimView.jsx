@@ -1,14 +1,14 @@
 import React from 'react'
+import Claims from '../components/account/Claims'
 
-
-const PanierView = () => {
+const ClaimView = () => {
     return (
         <div className="container-product">
             <div className="w-full bg-gray-200">
-                Reclamation
+                <Claims />
             </div>
         </div>
     )
 }
 
-export default PanierView
+export default ClaimView

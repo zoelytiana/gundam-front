@@ -1,0 +1,24 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* INPUTS */
+    .claim div{
+        @apply appearance-none relative block w-full px-3 py-2 mt-2
+        border border-primary-200 placeholder-gray-500 rounded-md 
+        focus:outline-none focus:ring-primary-200 focus:border-primary-200 focus:z-20 sm:text-sm;
+    }
+
+    .claim div:nth-child(even) { 
+        @apply bg-gray-300 ml-8 
+    }
+    
+    .claim div:nth-child(odd) {
+        @apply bg-gray-200 mr-8
+    }
+
+}
+
+

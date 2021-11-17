@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { signIn } from '../shared/redux-store/authenticationSlice';
-import { authenticate } from './../api/backend/account';
+import { register } from './../api/backend/account';
 import { URL_HOME } from './../shared/constants/urls/urlConstants';
 import { isAuthenticated } from './../shared/services/accountServices';
 import Register from './../components/account/Register';
@@ -18,8 +18,11 @@ import Register from './../components/account/Register';
     const dispatch = useDispatch()
 
     const handleRegister = (values) => {
-        authenticate(values).then(res => {
+        console.log(values);
+        register(values).then(res => {
+            console.log('data :', res.data);
             if(res.status === 200 && res.data.id_token) {
+                console.log('data :', res.data);
                 dispatch(signIn(res.data.id_token))
                 if(isAuthenticated) history.push(URL_HOME)
             }
