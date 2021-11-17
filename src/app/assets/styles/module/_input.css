@@ -1,9 +1,5 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@layer components {
     /* INPUTS */
     .input {
         @apply appearance-none relative block w-full px-3 py-2 
@@ -20,8 +16,3 @@
         @apply border-primary-100 border-2;
     }
    
-label {
-    margin-bottom: 0px !important;
-}
-
-}

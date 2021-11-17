@@ -1,32 +1,30 @@
-
-
-h1 {
+/* h1 {
   font-weight: 600;
   font-size: 72px;
   color: white;
   text-align: center;
-}
+} */
 
-h2 {
+/* h2 {
   font-weight: 600;
   font-size: 48px;
   color: #880C01;
   text-align: center;
-}
+} */
 
-h4 {
+/* h4 {
   font-weight: 400;
   font-size: 20px;
   color: #9b9b9b;
   line-height: 1.5;
-}
+} */
 
-.form-shadow{
+/* .form-shadow{
   box-shadow: 5px 5px 5px #444442;
-}
+} */
 /* ///// inputs /////*/
 
-input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+/* input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
   font-size: 0.75em;
   color: #999;
   top: -5px;
@@ -68,6 +66,35 @@ a{
 	min-width: 300px;
 }
 
+<<<<<<< HEAD:src/app/assets/styles/layout/form.css
+=======
+<<<<<<< HEAD
+.btn-form{
+  background-color: rgba(136, 12, 1, 1 );
+	-webkit-transform:skew(30deg);
+	-moz-transform:skew(30deg);
+	-o-transform:skew(30deg);
+	transform:skew(30deg);
+  color : rgb(161, 139, 139);
+  font-weight: bold;
+  padding: .5rem 3.5rem;
+} */
+
+/* 
+.btn-form:hover{
+  background-color: blue;
+} */
+
+/* .btn-form-text{
+  color:white;
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  transform:skew(-30deg);
+}
+=======
+>>>>>>> dev
+>>>>>>> dev:src/app/assets/styles/styles-form.css
 
 @media only screen and (max-width: 768px){
   .styled-input {
@@ -128,4 +155,4 @@ textarea {
 .note{
   font-size: 1rem;
   text-align: center;
-}
+} */
