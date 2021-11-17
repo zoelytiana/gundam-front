@@ -5,6 +5,7 @@
 .vscode
 
 # dependencies
+/data/fake-api-jwt-json-server/node_modules
 /node_modules
 /.pnp
 .pnp.js
