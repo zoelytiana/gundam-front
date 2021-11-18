@@ -12,7 +12,7 @@ const BoutiqueView = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             setLoading(true);
-            const res = await axios.get('http://localhost:8000/gundams');
+            const res = await axios.get('http://localhost:8000/products');
             setGundams(res.data);
             setLoading(false)
         }
