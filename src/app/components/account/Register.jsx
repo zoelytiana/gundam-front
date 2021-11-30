@@ -27,11 +27,11 @@ const FormRegister = ({ submit, errorLog }) => (
     <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormRegister}>
         <Form className='mt-8 space-y-6'>
             <div className='shadow-sm -space-y-px'>
-                <Field type="email" name="email" placeholder="Votre adresse e-mail" 
+                <Field type="email" name="userEmail" placeholder="Votre adresse e-mail" 
                 component={ CustomInput } className='rounded-none my-3' noError/>
-                <Field type='password' name='password' placeholder='Mot de passe' 
+                <Field type='password' name='userPassword' placeholder='Mot de passe' 
                 component={ CustomInput } className='rounded-none my-3' noError/>
-                <Field type='password' name='passwordConfirmation' placeholder='Confirmation du mot de passe' 
+                <Field type='password' name='userPasswordConfirmation' placeholder='Confirmation du mot de passe' 
                 component={ CustomInput } className='rounded-none my-3' noError/>
             </div>
 
@@ -64,7 +64,7 @@ const FormRegister = ({ submit, errorLog }) => (
                 </div>
             </div>
 
-            { errorLog && <ErrorMessSmall middle message="Les mots de passe ne correspondent pas" /> }
+            { errorLog && <ErrorMessSmall middle message="Les mots de passe ne correspondent pas ou la condition d'utilisation n'est pas cochée" /> }
         </Form>
     </Formik>
 )

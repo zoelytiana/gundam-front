@@ -5,12 +5,13 @@ import { XIcon } from '@heroicons/react/solid'
 import { schemaFormAccount } from './../../shared/constants/formik-yup/yup/yupAccount';
 import { CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 
-function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
-    const currentEmailOk = false
-
-    function validatePassword() {
-        //var x = document.getElementById("oldPassword");
-        console.log("password")
+function ModalDeliveryAddress({toggleModal, setToggleModal, submit, currentAccount}) {
+    const submitClose =(values)=>{
+        console.log('toggleModal:',toggleModal)
+        console.log('values dans modal account:',values)
+        submit(values)
+        setToggleModal(!toggleModal)
+        //window.document.addInformation.submit()
     }
     return (
         toggleModal && (
@@ -29,18 +30,18 @@ function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
                                 <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                     <div class="mt-2">
                                         <p class="text-sm text-gray-500">
-                                        <Formik onSubmit={submit} validationSchema={schemaFormAccount} initialValues={currentAccount}>
+                                        <Formik onSubmit={submitClose} validationSchema={schemaFormAccount } initialValues={currentAccount}>
                                             <Form className='mt-8 space-y-6'>
-                                                <h2>Mon mot de passe  <a href='#' className="text-red-700" onClick={() => setToggleModal(!toggleModal)}> <XIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
+                                                <h2>Mon adresse de livraison <a href='#' className="text-red-700" onClick={() => setToggleModal(!toggleModal)}> <XIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
                                                 
                                                 <div className='shadow-sm -space-y-px'>
                                                 <Field type="hidden" name="id" placeholder="id" 
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type="password" name="oldPassword" placeholder="Ancien mot de passe"
+                                                    <Field type="text" name="userDeliveryAddress.street" placeholder="street"
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type='password' name='newPassword' placeholder='Password' 
+                                                    <Field type='text' name='userDeliveryAddress.city' placeholder='city' 
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type='password' name='checkPassword' placeholder='Confirmation password' 
+                                                    <Field type='text' name='userDeliveryAddress.country' placeholder='country' 
                                                     component={ CustomInput } className='rounded-none my-3' />
                                                 </div>
 
@@ -49,8 +50,7 @@ function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
                                                         <div className="InscriptionSpanText">Enregistrer</div>
                                                     </button>
                                                 </div>
-  
-                                            
+
                                             </Form>
                                         </Formik>
                                         </p>
@@ -66,4 +66,4 @@ function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
     )
 }
 
-export default Modal
+export default ModalDeliveryAddress

@@ -3,6 +3,7 @@ import apiBackEnd from './api.Backend';
 import { URL_BACK_AUTHENTICATE } from './../../shared/constants/urls/urlBackEnd';
 import { URL_BACK_REGISTER } from './../../shared/constants/urls/urlBackEnd';
 import { URL_BACK_ACCOUNT } from './../../shared/constants/urls/urlBackEnd';
+import { URL_BACK_PASSWORD } from './../../shared/constants/urls/urlBackEnd';
 
 export function authenticate(values) {
     return apiBackEnd.post(URL_BACK_AUTHENTICATE, values)
@@ -17,13 +18,19 @@ export function account(values) {
 }
 
 export function updateAccount (id, data) {
+    console.log('les valeur à ajouter dans la base:',data)
     return apiBackEnd.put(URL_BACK_ACCOUNT+'/'+id, data);
 }
 
-export function getAccount(login) {
+export function updatePassword(id, data) {
+    console.log('les valeur à ajouter dans la base:', data)
+    return apiBackEnd.put(URL_BACK_PASSWORD+'/'+id, data);
+}
+
+export function getAccount(id) {
     //URL_BACK_ACCOUNT = '/users?email='+login
-    console.log('URL+login :', URL_BACK_ACCOUNT+'?email='+login)
-    return apiBackEnd.get(URL_BACK_ACCOUNT+'?email='+login)
+    console.log('URL+login :', URL_BACK_ACCOUNT+'/'+id)
+    return apiBackEnd.get(URL_BACK_ACCOUNT+'/'+id)
 }
 
 /*export function authenticate(values) {

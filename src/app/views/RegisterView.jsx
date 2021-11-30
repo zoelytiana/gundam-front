@@ -19,6 +19,8 @@ import Register from './../components/account/Register';
 
     const handleRegister = (values) => {
         console.log(values);
+        if(values.userPassword === values.userPasswordConfirmation && values.cgu === true) {
+            console.log("ok",values);
         register(values).then(res => {
             console.log('data :', res.data);
             if(res.status === 200 && res.data.id_token) {
@@ -27,6 +29,9 @@ import Register from './../components/account/Register';
                 if(isAuthenticated) history.push(URL_HOME)
             }
         }).catch(() => setErrorLog(true))
+        }else{
+            setErrorLog(true)
+        }
     }
 
     return (
