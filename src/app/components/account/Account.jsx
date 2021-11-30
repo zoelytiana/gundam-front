@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
 
 import { PencilAltIcon } from '@heroicons/react/solid'
-import { schemaFormAccount } from './../../shared/constants/formik-yup/yup/yupAccount';
-import { CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
-import { URL_CGU} from '../../shared/constants/urls/urlConstants';
 
 import ModalAccount from "./ModalAccount";
 import ModalAccountAddress from "./ModalAccountAddress";
+import ModalAccountBillingAddress from "./ModalAccountBillingAddress";
+import ModalAccountDeliveryAddress from "./ModalAccountAddressDelivery";
 import ModalAccountPassword from "./ModalAccountPassword";
 
 /**
@@ -25,8 +23,10 @@ const FormAccount = ({ submit, submitPassword, errorLog, currentAccount}) => {
 
     const [openModalAccount, setOpenModalAccount] = useState(false);
     const [openModalAddress, setOpenModalAddress] = useState(false);
+    const [openModalBillingAddress, setOpenModalBillingAddress] = useState(false);
+    const [openModalDeliveryAddress, setOpenModalDeliveryAddress] = useState(false);
     const [openModalPassword, setOpenModalPassword] = useState(false);
-    console.log('currentaccount', currentAccount)
+    console.log('currentaccount dans account.jsx', currentAccount)
     return (
     /*<Formik onSubmit={submit} validationSchema={schemaFormAccount } initialValues={currentAccount[0]}>
         <Form className='mt-8 space-y-6'>*/
@@ -35,30 +35,50 @@ const FormAccount = ({ submit, submitPassword, errorLog, currentAccount}) => {
             <h2>Mes Informations <a href='#' className="text-red-700" onClick={() => setOpenModalAccount(true)}> <PencilAltIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
             <fieldset disabled>
             <div className='shadow-sm -space-y-px'>
-            
-                <input type="email" placeholder={currentAccount[0].email} className='rounded-none my-3'/>
-                <input type='text'  placeholder={currentAccount[0].name} className='rounded-none my-3'/>
-                <input type='text' placeholder={currentAccount[0].firstName} className='rounded-none my-3' />
-                <input type='text'  placeholder={currentAccount[0].phone} className='rounded-none my-3' />
-                <input type='text'  placeholder={currentAccount[0].birthday} className='rounded-none my-3' />
+                <input type="text" placeholder={currentAccount._id} className='rounded-none my-3 w-full'/>
+                <input type="email" placeholder={currentAccount.userEmail} className='rounded-none my-3 w-full'/>
+                <input type='text'  placeholder={currentAccount.userName} className='rounded-none my-3 w-full'/>
+                <input type='text' placeholder={currentAccount.userFirstName} className='rounded-none my-3 w-full' />
+                <input type='text'  placeholder={currentAccount.userPhone} className='rounded-none my-3 w-full' pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"/>
+                <input type='text'  placeholder={currentAccount.userBirthday} className='rounded-none my-3 w-full' />
             </div>
         </fieldset>
             <ModalAccount toggleModal={openModalAccount} setToggleModal={setOpenModalAccount} submit={submit} currentAccount={currentAccount} />
 
-            <h2>Mon adresse de facturation <a href='#' className="text-red-700" onClick={() => setOpenModalAddress(true)}> <PencilAltIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
+            <h2>Mon adresse <a href='#' className="text-red-700" onClick={() => setOpenModalAddress(true)}> <PencilAltIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
             <fieldset disabled>
             <div className='shadow-sm -space-y-px'>
-                <input type="text"  placeholder={currentAccount[0].street} className='rounded-none my-3'/>
-                <input type='text'  placeholder={currentAccount[0].city} className='rounded-none my-3'/>
-                <input type='text'  placeholder={currentAccount[0].country} className='rounded-none my-3' />
+                <input type="text"  placeholder={currentAccount.userAddress.street !=="" ? currentAccount.userAddress.street : "" } className='rounded-none my-3 w-full'/>
+                <input type='text'  placeholder={currentAccount.userAddress.city !=="" ? currentAccount.userAddress.city : "City"} className='rounded-none my-3 w-full'/>
+                <input type='text'  placeholder={currentAccount.userAddress.country !=="" ? currentAccount.userAddress.country : "Country"} className='rounded-none my-3 w-full' />
             </div>
             </fieldset>
             <ModalAccountAddress toggleModal={openModalAddress} setToggleModal={setOpenModalAddress} submit={submit} currentAccount={currentAccount} />
+            
+            <h2>Mon adresse de facturation <a href='#' className="text-red-700" onClick={() => setOpenModalBillingAddress(true)}> <PencilAltIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
+            <fieldset disabled>
+            <div className='shadow-sm -space-y-px'>
+                <input type="text"  placeholder={currentAccount.userBillingAddress.street !=="" ? currentAccount.userBillingAddress.street : "" } className='rounded-none my-3 w-full'/>
+                <input type='text'  placeholder={currentAccount.userBillingAddress.city !=="" ? currentAccount.userBillingAddress.city : "City"} className='rounded-none my-3 w-full'/>
+                <input type='text'  placeholder={currentAccount.userBillingAddress.country !=="" ? currentAccount.userBillingAddress.country : "Country"} className='rounded-none my-3 w-full' />
+            </div>
+            </fieldset>
+            <ModalAccountBillingAddress toggleModal={openModalBillingAddress} setToggleModal={setOpenModalBillingAddress} submit={submit} currentAccount={currentAccount} />
+
+            <h2>Mon adresse de livraison <a href='#' className="text-red-700" onClick={() => setOpenModalDeliveryAddress(true)}> <PencilAltIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
+            <fieldset disabled>
+            <div className='shadow-sm -space-y-px'>
+                <input type="text"  placeholder={currentAccount.userDeliveryAddress.street !=="" ? currentAccount.userDeliveryAddress.street : "Street" } className='rounded-none my-3 w-full'/>
+                <input type='text'  placeholder={currentAccount.userDeliveryAddress.city !=="" ? currentAccount.userDeliveryAddress.city : "City"} className='rounded-none my-3 w-full'/>
+                <input type='text'  placeholder={currentAccount.userDeliveryAddress.country !=="" ? currentAccount.userDeliveryAddress.country : "Country"} className='rounded-none my-3 w-full' />
+            </div>
+            </fieldset>
+            <ModalAccountDeliveryAddress toggleModal={openModalDeliveryAddress} setToggleModal={setOpenModalDeliveryAddress} submit={submit} currentAccount={currentAccount} />
 
             <h2>Mon mot de passe <a href='#' className="text-red-700" onClick={() => setOpenModalPassword(true)}> <PencilAltIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
             <fieldset disabled>
             <div className='shadow-sm -space-y-px'>
-                <input type="password" placeholder={currentAccount[0].password} className='rounded-none my-3'/>                
+                <input type="password" placeholder='Mot de passe' value={currentAccount.userPassword} className='rounded-none my-3 w-full'/>                
             </div>
             </fieldset>
             <ModalAccountPassword toggleModal={openModalPassword} setToggleModal={setOpenModalPassword} submit={submitPassword} currentAccount={currentAccount} />

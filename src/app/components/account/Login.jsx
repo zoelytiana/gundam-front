@@ -33,9 +33,9 @@ const FormLogin = ({ submit, errorLog, setOpenModal }) => (
         <Formik initialValues={defaulValuesLogin} onSubmit={submit} validationSchema={schemaFormLogin}>
             <Form className='mt-8 space-y-6'>
                 <div className='rounded-md shadow-sm -space-y-px'>
-                    <Field type="email" name="email" placeholder="Login"
+                    <Field type="email" name="userEmail" placeholder="Login"
                         component={CustomInput} className='rounded-none my-3' noError />
-                    <Field type='password' name='password' placeholder='Password'
+                    <Field type='password' name='userPassword' placeholder='Password'
                         component={CustomInput} className='rounded-none my-3' noError />
                 </div>
 

@@ -3,9 +3,17 @@ import { Formik, Form, Field } from 'formik';
 
 import { XIcon } from '@heroicons/react/solid'
 import { schemaFormAccount } from './../../shared/constants/formik-yup/yup/yupAccount';
-import { CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
+import { CustomInput, CustomCheckbox } from '../../shared/components/form-and-error-components/InputCustom';
 
-function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
+function ModalAddress({toggleModal, setToggleModal, submit, currentAccount}) {
+
+    const submitClose =(values)=>{
+        console.log('toggleModal:',toggleModal)
+        console.log('values dans modal account:',values)
+        submit(values)
+        setToggleModal(!toggleModal)
+        //window.document.addInformation.submit()
+    }
     return (
         toggleModal && (
             <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -23,20 +31,21 @@ function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
                                 <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                     <div class="mt-2">
                                         <p class="text-sm text-gray-500">
-                                        <Formik onSubmit={submit} validationSchema={schemaFormAccount } initialValues={currentAccount[0]}>
+                                        <Formik onSubmit={submitClose} validationSchema={schemaFormAccount } initialValues={currentAccount}>
                                             <Form className='mt-8 space-y-6'>
-                                                <h2>Mon adresse de facturation <a href='#' className="text-red-700" onClick={() => setToggleModal(!toggleModal)}> <XIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
+                                                <h2>Mon adresse  <a href='#' className="text-red-700" onClick={() => setToggleModal(!toggleModal)}> <XIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
                                                 
                                                 <div className='shadow-sm -space-y-px'>
                                                 <Field type="hidden" name="id" placeholder="id" 
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type="text" name="street" placeholder="street"
+                                                    <Field type="text" name="userAddress.street" placeholder="street"
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type='text' name='city' placeholder='city' 
+                                                    <Field type='text' name='userAddress.city' placeholder='city' 
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type='text' name='country' placeholder='country' 
+                                                    <Field type='text' name='userAddress.country' placeholder='country' 
                                                     component={ CustomInput } className='rounded-none my-3' />
                                                 </div>
+                                              
 
                                                 <div className="flex  m-10">
                                                     <button type="submit" className="IncriptionBtn" >
@@ -59,4 +68,4 @@ function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
     )
 }
 
-export default Modal
+export default ModalAddress

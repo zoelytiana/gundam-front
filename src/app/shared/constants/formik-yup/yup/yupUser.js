@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 
 export const schemaFormLogin = Yup.object().shape({
-    email: Yup.string().required("Required input"),
-    password: Yup.string().required("Required input")
+    userEmail: Yup.string().required("Required input"),
+    userPassword: Yup.string().required("Required input")
 })

@@ -5,7 +5,16 @@ import { XIcon } from '@heroicons/react/solid'
 import { schemaFormAccount } from './../../shared/constants/formik-yup/yup/yupAccount';
 import { CustomInput } from '../../shared/components/form-and-error-components/InputCustom';
 
-function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
+function ModalAccount({toggleModal, setToggleModal, submit, currentAccount}) {
+
+const submitClose =(values)=>{
+    console.log('toggleModal:',toggleModal)
+    console.log('values:',values)
+    submit(values)
+    setToggleModal(!toggleModal)
+    //window.document.addInformation.submit()
+}
+
     return (
         toggleModal && (
             <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -20,30 +29,30 @@ function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
                     <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle lg:max-w-2xl lg:w-full md:max-w-xl md:w-full  sm:max-w-lg sm:w-full">
                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <div class= "w-full sm:flex sm:items-start">
-                                <div class="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                <div class="w-full mt-3 text-center sm:mt-0  sm:ml-4 sm:text-left">
                                     <div class="mt-2">
                                         <p class="text-sm text-gray-500">
-                                        <Formik onSubmit={submit} validationSchema={schemaFormAccount} initialValues={currentAccount[0]}>
-                                            <Form className='mt-8 space-y-6'>
+                                        <Formik onSubmit={submitClose} validationSchema={schemaFormAccount} initialValues={currentAccount}>
+                                            <Form className='mt-8 space-y-6' name="addInformation">
                                                 <h2>Mes Informations <a href='#' className="text-red-700" onClick={() => setToggleModal(!toggleModal)}> <XIcon className="h-5 w-5 text-black group-hover:text-primary-400 float-right" aria-hidden="true"/></a></h2>
                                                 
                                                 <div className='shadow-sm -space-y-px'>
                                                 <Field type="hidden" name="id" placeholder="id" 
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type="email" name="email" placeholder="email"
+                                                    <Field type="email" name="userEmail" placeholder="email"
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type='text' name='name' placeholder='Nom' 
+                                                    <Field type='text' name='userName' placeholder='Nom' 
                                                     component={ CustomInput } className='rounded-none my-3'/>
-                                                    <Field type='text' name='firstName' placeholder='Prénom' 
+                                                    <Field type='text' name='userFirstName' placeholder='Prénom' 
                                                     component={ CustomInput } className='rounded-none my-3' />
-                                                    <Field type='text' name='phone' placeholder='Téléphone' 
+                                                    <Field type='text' name='userPhone' placeholder='Téléphone' 
                                                     component={ CustomInput } className='rounded-none my-3' />
-                                                    <Field type='text' name='birthday' placeholder='Date de naissance' 
+                                                    <Field type='text' name='userBirthday' placeholder='Date de naissance' 
                                                     component={ CustomInput } className='rounded-none my-3' />
                                                 </div>
 
                                                 <div className="flex  m-10">
-                                                    <button type="submit" className="IncriptionBtn" >
+                                                    <button type='submit' className="IncriptionBtn">
                                                         <div className="InscriptionSpanText">Enregistrer</div>
                                                     </button>
                                                 </div>
@@ -63,4 +72,4 @@ function Modal({toggleModal, setToggleModal, submit, currentAccount}) {
     )
 }
 
-export default Modal
+export default ModalAccount
