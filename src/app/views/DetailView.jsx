@@ -11,7 +11,7 @@ const DetailView = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const res = await axios.get(`http://localhost:8000/gundams/${id}`);
+            const res = await axios.get(`http://localhost:4000/products/${id}`);
             setGundam(res.data);
             setLoading(false)
         }

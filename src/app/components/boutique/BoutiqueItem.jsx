@@ -13,18 +13,17 @@ function boutiqueItem(props) {
             <ul className="grid grid-cols-3">
                 {props.gundams.map(gundam => {
                     return (
-                        <li className="m-4" key={gundam.id}>
+                        <li className="m-4" key={gundam._id}>
                             <div className="box-product-bottom w-72">
                                 <div className="box-product h-72 flex justify-center items-center">
-                                    <img className="w-48 h-48" src={gundam.image} alt={gundam.name} />
+                                    <img className="w-48 h-48" src={gundam.productPic} alt={gundam.productName} />
                                 </div>
 
                             </div>
                             <div className="shadow-sm rounded m-1 mt-2 p-2">
                                 <div className="flex flex-col items-center">
-                                    <h4 className="font-bold">{gundam.name}</h4>
-                                    <p>{gundam.price}€</p>
-                                    <p>{gundam.id}</p>
+                                    <h4 className="font-bold">{gundam.productName}</h4>
+                                    <p>{gundam.productPrice}€</p>
                                 </div>
                                 <div className="flex justify-end items-center">
                                     <Link className="ml-1" to={URL_DETAIL + `/${gundam.id}`}>

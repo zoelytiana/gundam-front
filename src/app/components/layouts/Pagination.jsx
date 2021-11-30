@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from "./Pagination.module.css"
+
 
 function Pagination({ products, totalPage, paginate }) {
     const pageNumber = [];

@@ -1,17 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* @import url(./base/reset.css);
+@import url(./base/reset.css);
 @import url(./module/_button.css);
-@import url(./module/_box.css); */
-/* @import url(./module/_input.css);
+@import url(./module/_box.css);
+@import url(./module/_input.css);
 @import url(./module/_animation.css);
-@import url(./module/_link.css); */
+@import url(./module/_link.css);
 @import url(./layout/footer.css);
-/* @import url(./layout/login.css); */
-/* @import url(./layout/register.css);
+@import url(./layout/login.css);
+@import url(./layout/register.css);
 @import url(./layout/form.css);
-@import url(./layout/products.css); */
+@import url(./layout/products.css);
 @layer components {
     /* GEOMETRY */
     .point {
