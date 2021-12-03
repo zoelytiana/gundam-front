@@ -17,16 +17,9 @@ const BoutiqueView = () => {
             setLoading(false)
         }
         fetchProduct()
-        // fetch('http://localhost:8000/gundams')
-        //     .then(res => {
-        //         return res.json()
-        //     })
-        //     .then(data => {
-        //         console.log(data)
-        //         setGundams(data)
-        //     })
-    }, []);
 
+    }, []);
+    console.log(gundams)
     //controler le nombre de produits par page par l'intermédiaire des usestate current page et products
     const indexOfLastPost = currentPage * products;
     const indexOfFirstPost = indexOfLastPost - products;

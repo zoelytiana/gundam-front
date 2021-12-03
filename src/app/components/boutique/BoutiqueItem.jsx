@@ -18,7 +18,6 @@ function boutiqueItem(props) {
                                 <div className="box-product h-72 flex justify-center items-center">
                                     <img className="w-48 h-48" src={gundam.productPic} alt={gundam.productName} />
                                 </div>
-
                             </div>
                             <div className="shadow-sm rounded m-1 mt-2 p-2">
                                 <div className="flex flex-col items-center">
@@ -26,7 +25,7 @@ function boutiqueItem(props) {
                                     <p>{gundam.productPrice}€</p>
                                 </div>
                                 <div className="flex justify-end items-center">
-                                    <Link className="ml-1" to={URL_DETAIL + `/${gundam.id}`}>
+                                    <Link className="ml-1" to={URL_DETAIL + `/${gundam._id}`}>
                                         <button><img className="w-6 h-6" src={view} alt="" /></button>
                                     </Link>
                                     <Link className="ml-2" to={URL_PANIER}>
