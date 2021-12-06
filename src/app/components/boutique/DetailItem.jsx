@@ -9,7 +9,7 @@ const DetailItem = ({ gundam }) => {
         <div className="flex flex-col items-center my-40">
             <div className="flex flex-col items-center md:flex md:flex-row md:justify-around">
 
-                <img className="md:w-2/5 w-4/5" src={gundam.productPic} alt={gundam.productName} />
+                <img className="md:w-2/5 w-4/5" src={gundam.productPicHigh} alt={gundam.productName} />
 
 
                 <div className="flex flex-col items-center justify-center bg-white p-8 rounded text-center md:w-2/5 w-4/5">

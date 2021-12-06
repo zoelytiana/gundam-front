@@ -16,7 +16,7 @@ function boutiqueItem(props) {
                         <li className="m-4" key={gundam._id}>
                             <div className="box-product-bottom w-72">
                                 <div className="box-product h-72 flex justify-center items-center">
-                                    <img className="w-48 h-48" src={gundam.productPic} alt={gundam.productName} />
+                                    <img className="w-48 h-48" src={gundam.productPicHigh} alt={gundam.productName} />
                                 </div>
                             </div>
                             <div className="shadow-sm rounded m-1 mt-2 p-2">
