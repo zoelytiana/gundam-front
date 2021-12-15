@@ -7,7 +7,7 @@ export const URL_ADMIN_HOME = '/admin'
 export const URL_BOUTIQUE = '/boutique'
 export const URL_DETAIL = '/detail'
 export const URL_PANIER = '/panier'
-export const URL_ENVIE = '/envie'
+export const URL_ENVIE = '/listeenvies'
 export const URL_PRESENTATION = '/presentation'
 
 export const URL_FORGOTPASSWORD = '/forgot-password'

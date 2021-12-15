@@ -85,7 +85,7 @@ import Loader from '../shared/components/utils-components/Loader'
                 if(res.status === 200) {
                     console.log('data registred :', res.data);  
                     //setCurrentAccount(res.data);  
-                    getAccount(values.email).then(res => {
+                    getAccount(values.userEmail).then(res => {
                         if(res.status === 200 && res.data) {
                             console.log('Données:', res.data);
                             setCurrentAccount(res.data);
