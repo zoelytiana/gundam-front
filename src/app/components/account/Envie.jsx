@@ -59,16 +59,14 @@ const Envie = ({ id, submit})=>{
                                                     component={ CustomInput } className='rounded-none my-3'/>
                                                 </div>
 
+                                                    
                                                     <div className="flex justify-end items-center">
-                                                        <button type='submit'>
-                                                            <img className='w-6 h-6' src={Trash} alt='Supprimer' />
-                                                        </button>
-
-                                                        <div className='flex float-right space-x-2 w-24 h-24'>
-                                                            <Link className="ml-1" to={URL_DETAIL + `/${productDetail._id}`}>
+                                                    <Link className="ml-1" to={URL_DETAIL + `/${productDetail._id}`}>
                                                                 <button><img className='w-6 h-6' src={View} alt='Détail'/></button>
                                                             </Link>
-                                                        </div>
+                                                        <button type='submit'>
+                                                                <img className='w-6 h-6' src={Trash} alt='Supprimer' />
+                                                            </button>
                                                     </div>
                                                     
                             </Form>

@@ -36,7 +36,7 @@ import RegisterView from '../views/RegisterView';
 import BoutiqueView from '../views/BoutiqueView';
 import DetailView from '../views/DetailView';
 import PanierView from '../views/PanierView';
-import EnvieView from '../views/EnvieView';
+import EnvieView from '../views/ListeEnvieView';
 import PresentationView from '../views/PresentationView';
 import ContactView from '../views/ContactView';
 import MentionsView from '../views/MentionsView';
