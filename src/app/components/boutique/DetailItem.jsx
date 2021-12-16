@@ -37,10 +37,14 @@ const DetailItem = ({ gundam }) => {
                 <div className="flex flex-col items-center justify-center bg-white p-8 rounded text-center md:w-2/5 w-4/5">
                     <h1 className="m-4">{gundam.productName}</h1>
                     <h2 className="font-thin">{gundam.productPrice}€</h2>
+<<<<<<< HEAD
 
 
                     <img className="m-4" src={heart} alt="heart logo" onClick={()=>addWish(gundam._id)} />
                     
+=======
+                    <img className="m-4" src={heart} alt="heart logo" />
+>>>>>>> 0a3f7c947a4f71c39f0104f75187ec6541e907ca
                     <div className="grid grid-cols-3 items-center">
                         <div className="btn-form" >
                             <p className="btn-form-text">En stock</p>
