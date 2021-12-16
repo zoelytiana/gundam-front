@@ -5,6 +5,8 @@ import {
             URL_LOGIN, 
             URL_REGISTER, 
             URL_ADMIN_HOME, 
+            URL_ADMIN_PRODUCTLIST, 
+            URL_ADMIN_ADDPRODUCT, 
             URL_BOUTIQUE, 
             URL_DETAIL, 
             URL_PANIER, 
@@ -59,7 +61,9 @@ import ClaimView from '../views/ClaimView';
 import AccountView from '../views/AccountView';
 
 import { customHistory } from '../shared/services/historyServices';
-import AdminHomeView from '../views/AdminHomeView';
+import AdminHomeView from '../views/admin/AdminHomeView';
+import AdminProductListView from '../views/admin/AdminProductListView';
+import AdminAddProductView from '../views/admin/AdminAddProductView';
 import { ROLE_ADMIN, ROLE_USER } from '../shared/constants/rolesConstant';
 import { PrivateRoute } from '../shared/components/utils-components/PrivateRoute';
 
@@ -105,6 +109,9 @@ const Routes = () => {
             <Route path={URL_LOGIN} component={LoginView} />
             <Route path={URL_REGISTER} component={RegisterView} />
             <Route path={URL_ACCOUNT} component={AccountView} />
+            
+            <Route path={URL_ADMIN_PRODUCTLIST} component={AdminProductListView} />
+            <Route path={URL_ADMIN_ADDPRODUCT} component={AdminAddProductView} />
         </Switch>
     );
 };
