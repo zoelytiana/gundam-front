@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+import jwt_decode from 'jwt-decode'
 
 const TOKEN_NAME = 'token'
 
@@ -39,8 +39,7 @@ export function removeToken() {
  * @author Peter Mollet
  */
 export function getPayloadToken(){
-    const decoded = decodeToken();
-    return decoded.payload
+    return decodeToken();
 }
 
 /**
@@ -51,5 +50,5 @@ export function getPayloadToken(){
  */
 function decodeToken() {
     const token = getToken()
-    return jwt.decode(token, {complete: true});
+    return jwt_decode(token);
 }

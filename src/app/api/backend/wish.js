@@ -12,8 +12,8 @@ export function getAllWishes(userId) {
     return apiBackEnd.get(URL_BACK_WISHES+'/'+userId)
 }
 
-export function putWish(userId) {
-    return apiBackEnd.put(URL_BACK_WISH+'/'+userId)
+export function putWish(userId, data) {
+    return apiBackEnd.put(URL_BACK_WISH+'/'+userId, data)
 }
 
 export function removeWish(userId, data) {
