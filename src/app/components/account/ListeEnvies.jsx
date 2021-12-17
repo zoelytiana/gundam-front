@@ -2,47 +2,30 @@ import React, { Component } from "react";
 import Envie from './Envie'
 import Bas from './Bas'
 
-class ListeEnvies extends Component{
 
-    state = {
-        produit :[
-            {name : 'produit1', picture :'pic', prix:200},
-            {name : 'produit2', picture :'pic', prix:100},
-            {name : 'produit3', picture :'pic', prix:300},
-            {name : 'produit4', picture :'pic', prix:200},
-            {name : 'produit5', picture :'pic', prix:100},
-            {name : 'produit6', picture :'pic', prix:300}
-        ]
-    }
-
-    addCart = ()=>{
-        const upDateState = this.state.produit.map((param)=> {
-            return param.prix+=10;
-        })
-        this.setState({upDateState})     
-    }
-
-
-    render(){
+const ListeEnvies = ({ errorLog, currentWish, setCurrentWish, submit}) => {
         return(
-            <div className="flex-container">
-                <div className='flex-box'>
-                    <h2 onMouseOver={this.change} className="mt-6 text-left text-3xl font-extrabold">LISTE DES ENVIES</h2>
-                    <div className='flex-list-wrap'>
+            <div className="container mx-auto max-w-screen-2xl px-4">
+                <div className='grid justify-items-center'>
+                    <h2 className="mt-6 text-left text-3xl font-extrabold">LISTE DES ENVIES  </h2>
+                    <div className="grid justify-items-center my-20">
+                    <ul className="flex flex-wrap">
                     {
-                        this.state.produit.map((produit, index)=>{
-                            return(
-                            <Envie key={index} name={produit.name} prix={produit.prix} picture={produit.picture}>ici</Envie>
+
+                    currentWish.wishDetail.map((wish, index)=>{
+                        return(
+                            <Envie key={index} id={wish._id} submit={submit}></Envie>
                         )
-                    })
-                    }
+                            })
+                        }
+                        </ul>
                     </div>
+                   
                 </div>
                 <div><Bas/></div>
                 
             </div>
         )
     }
-}
 
 export default ListeEnvies;

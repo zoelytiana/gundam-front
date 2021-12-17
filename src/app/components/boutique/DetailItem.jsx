@@ -3,8 +3,30 @@ import { Link } from 'react-router-dom';
 import { URL_PANIER } from './../../shared/constants/urls/urlConstants';
 import heart from "./../../assets/images/heart.png";
 import stars from "./../../assets/images/stars.png";
+import { putWish } from '../../api/backend/wish';
+import { Formik, Form, Field } from 'formik';
+import { accountLogin} from './../../shared/services/accountServices';
+import { URL_ENVIE } from './../../shared/constants/urls/urlConstants';
+//import ModalAddWish from './../account/ModalAddWish'
 
 const DetailItem = ({ gundam }) => {
+
+    const addWish = (id)=>{
+        console.log('id',id)
+        const userId = accountLogin();
+        const data = 
+        {
+            "wishDetail": {"_id": id}
+          }
+          console.log('data to wish',data)
+        putWish(userId, data).then(res => {
+            if(res.status === 201 && res.data) {
+                console.log('Données:', res.data);
+                //const toggleModal = true;
+                history.push(URL_ENVIE)
+            }
+        }).catch((error)=>console.log('Get wishes error !'));
+    }
     return (
         <div className="flex flex-col items-center my-40">
             <div className="flex flex-col items-center md:flex md:flex-row md:justify-around">

@@ -4,3 +4,8 @@ export const URL_BACK_REGISTER = 'auth/signup'
 export const URL_BACK_ACCOUNT = '/user'
 export const URL_BACK_PASSWORD = '/password/user'
 //export const URL_BACK_AUTHENTICATE = '/users'
+export const URL_BACK_WISHES = '/wishes'
+export const URL_BACK_WISH = '/wish'
+export const URL_BACK_WISH_USER = '/wish/user'
+
+export const URL_BACK_PRODUCT = '/products'

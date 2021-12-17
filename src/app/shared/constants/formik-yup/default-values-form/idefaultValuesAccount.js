@@ -1,7 +1,7 @@
 export const defaultValuesAccount = { 
-    email:'aa@aa.mg', 
-    name:'oooo',
-    firstName:'ii',
-    phone:'666',
-    birthday:'12232002'
+    userEmail:'aa@aa.mg', 
+    userName:'oooo',
+    userFirstName:'ii',
+    userPhone:'666',
+    userBirthday:'12232002'
 }
