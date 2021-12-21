@@ -22,9 +22,11 @@ const FormContact = ({ submit, errorLog }) => (
     <Formik initialValues={defaulValuesContact} onSubmit={submit} validationSchema={schemaFormContact}>
     <Form className='flexForm'>
         
-        <div className='flexCol'>
+        <div className='w-full my-2'>
             <Field type="text" name="name" placeholder="name" 
             component={ CustomInput } className='styled-input'/>
+        </div>
+        <div className='w-full my-2'>
             <Field type="text" name='lastname' placeholder='lastname' 
             component={ CustomInput } className='styled-input'/>
         </div>
@@ -67,14 +69,14 @@ const ContactForm = (props) => {
     return (
 <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
 
-            <div className='p-5'>
-                <h2 className="mt-6 text-center text-3xl font-extrabold">
-                    NOUS CONTACTER
-                </h2>
-                <p>Si vous désirer nous contacter, obtenir des informations, veuillez nous laisser nous un message avec vos coordonnées. Nous vous répondrons dans le plus bref délais.</p>
-            </div>
-    <FormContact {...props} /> 
-
+    <div className='w-full bg-white p-4 shadow space-y-8 py-12 px-4 sm:px-6 lg:px-8 mx-auto'>
+        <h2 className="mt-6 text-center text-3xl font-extrabold">
+            NOUS CONTACTER
+        </h2>
+        <p>Si vous désirer nous contacter, obtenir des informations, veuillez nous laisser nous un message avec vos coordonnées. Nous vous répondrons dans le plus bref délais.</p>
+            
+        <FormContact {...props} /> 
+    </div>
     <div className='center-div'><img src={picturers} alt='Reseaux sociaux'/></div>
 </div>
     );

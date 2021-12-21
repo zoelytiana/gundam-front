@@ -29,8 +29,11 @@ import ContactForm from '../components/account/ContactForm';
     }
 
     return (
-        <div className="flex w-full">
-            <ContactForm submit={handleContact} errorLog={errorLog} />
+        <div className="container">
+            <div className="max-w-7xl px-4 mx-auto">
+            
+                <ContactForm submit={handleContact} errorLog={errorLog} />
+            </div>
         </div>
     );
 };

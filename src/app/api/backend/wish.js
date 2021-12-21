@@ -21,3 +21,7 @@ export function removeWish(userId, data) {
     return apiBackEnd.put(URL_BACK_WISH_USER+'/'+userId, data)
 }
 
+export function existWish(userId, data) {
+    console.log('data avant check',data)
+    return apiBackEnd.post(URL_BACK_WISH_USER+'/'+userId, data)
+}

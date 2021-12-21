@@ -7,5 +7,4 @@ export const URL_BACK_PASSWORD = '/password/user'
 export const URL_BACK_WISHES = '/wishes'
 export const URL_BACK_WISH = '/wish'
 export const URL_BACK_WISH_USER = '/wish/user'
-
 export const URL_BACK_PRODUCT = '/products'
