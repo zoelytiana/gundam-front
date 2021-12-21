@@ -6,6 +6,7 @@ import {
             URL_REGISTER, 
             URL_ADMIN_HOME, 
             URL_BOUTIQUE, 
+            URL_PROMOTION, 
             URL_DETAIL, 
             URL_PANIER, 
             URL_ENVIE, 
@@ -20,7 +21,6 @@ import {
             URL_RETOUR_PRODUIT,
             URL_COMMANDE,
             URL_ADRESSE,
-            URL_CONTACT_FORM, 
             URL_LIVRAISON, 
             URL_LISTEENVIES,
             URL_TICKET,
@@ -34,11 +34,12 @@ import LoginView from '../views/LoginView';
 import RegisterView from '../views/RegisterView';
 
 import BoutiqueView from '../views/BoutiqueView';
+import PromotionView from '../views/PromotionView';
 import DetailView from '../views/DetailView';
 import PanierView from '../views/PanierView';
 import EnvieView from '../views/ListeEnvieView';
 import PresentationView from '../views/PresentationView';
-import ContactView from '../views/ContactView';
+import ContactView from '../views/ContactFormView';
 import MentionsView from '../views/MentionsView';
 import PaiementView from '../views/PaiementView';
 import LivraisonRetourView from '../views/LivraisonRetourView';
@@ -50,7 +51,6 @@ import AdresseView from '../views/AdresseView';
 
 import CguView from '../views/CguView';
 import ForgotPasswordView from '../views/ForgotPasswordView';
-import ContactFormView from '../views/ContactFormView';
 import LivraisonView from '../views/LivraisonView';
 import ListeEnviesView from '../views/ListeEnvieView';
 import TicketView from '../views/TicketView';
@@ -77,6 +77,7 @@ const Routes = () => {
 
             <Route exact path={URL_HOME} component={HomeView} />
             <Route path={URL_BOUTIQUE} component={BoutiqueView} />
+            <Route path={URL_PROMOTION} component={PromotionView} />
             <Route path={URL_DETAIL + "/:_id"} component={DetailView} />
             <Route path={URL_PANIER} component={PanierView} />
             <Route path={URL_ENVIE} component={EnvieView} />
@@ -95,7 +96,6 @@ const Routes = () => {
             <PrivateRoute path={URL_COMMANDE} component={CommandeView} roles={[ROLE_USER]} />
             <PrivateRoute path={URL_ADRESSE} component={AdresseView} roles={[ROLE_USER]} />
 
-            <Route path={URL_CONTACT_FORM} component={ContactFormView} />
             <Route path={URL_LIVRAISON} component={LivraisonView} />
             <Route path={URL_LISTEENVIES} component={ListeEnviesView} />
             <Route path={URL_TICKET} component={TicketView} />
