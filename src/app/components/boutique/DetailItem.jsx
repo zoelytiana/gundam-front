@@ -8,10 +8,14 @@ import { putWish, existWish, removeWish } from '../../api/backend/wish';
 import { Formik, Form, Field } from 'formik';
 import { accountLogin} from './../../shared/services/accountServices';
 import { URL_ENVIE } from './../../shared/constants/urls/urlConstants';
+//import { configureStore } from '@reduxjs/toolkit'
+import { store } from '../../shared/redux-store/store';
+import { addProduct, deleteProduct } from '../../shared/redux-store/productSlice';
 
 
 const DetailItem = ({ gundam }) => {
     const userId = accountLogin();
+
 
     const [checkWish, setCheckWish] = useState(false);
     
@@ -56,6 +60,23 @@ const DetailItem = ({ gundam }) => {
         }).catch((error)=>console.log('Get account error !')); 
     }
 
+     // Can still subscribe to the store
+    //store.subscribe(() => console.log(store.getState()))
+
+    const addToCart = (id, productName, productPrice ) =>{
+   
+        const data = {
+                id: id,
+                productName: productName,
+                productPrice: productPrice
+            };
+
+          console.log('data',data)
+          // Still pass action objects to `dispatch`, but they're created for us
+          store.dispatch(addProduct(data))
+          console.log('store',store.getState())
+    }
+
     return (
         <div className="flex flex-col items-center my-40">
             <div className="flex flex-col items-center md:flex md:flex-row md:justify-around">
@@ -84,11 +105,11 @@ const DetailItem = ({ gundam }) => {
                             <h3 className="border-solid border-black border-2 rounded p-2">1</h3>
                             <h3 className="m-2">+</h3>
                         </div>
-                        <Link to={URL_PANIER}>
-                            <button className="btn-form">
+                       
+                            <button className="btn-form" onClick={()=>addToCart(gundam._id,gundam.productName,gundam.productPrice)}>
                                 <p className="btn-form-text">Ajouter au panier</p>
                             </button>
-                        </Link>
+                       
                     </div>
                 </div>
             </div>
@@ -96,6 +117,7 @@ const DetailItem = ({ gundam }) => {
             <div className="lg:w-7/12 w-4/5 text-center p-8 lg:m-8 rounded bg-white">
                 <h3>Description</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic repellat ullam cum vitae consequatur laudantium similique ipsum praesentium totam soluta sapiente debitis, unde explicabo nemo dolore nostrum perspiciatis, provident quo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic repellat ullam cum vitae consequatur laudantium similique ipsum praesentium totam soluta sapiente debitis, unde explicabo nemo dolore nostrum perspiciatis, provident quo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic repellat ullam cum vitae consequatur laudantium similique ipsum praesentium totam soluta sapiente debitis, unde explicabo nemo dolore nostrum perspiciatis, provident quo.</p>
+               
             </div>
 
             {/* <div className="md:flex justify-center w-60">
