@@ -6,6 +6,7 @@ import { getAllWishes } from './../api/backend/wish';
 import Loader from '../shared/components/utils-components/Loader';
 import { accountLogin} from './../shared/services/accountServices';
 import { removeWish } from './../api/backend/wish';
+import Pagination from '../components/layouts/Pagination';
 
 /**
  * View/Page Login
@@ -17,11 +18,12 @@ import { removeWish } from './../api/backend/wish';
 
     const [currentWish, setCurrentWish] = useState(null);
 
+
     useEffect(() =>{
         loadWish();
     }, []);
 
-
+    const currentWishtoDisplay = []
     const loadWish = () => {
         const userId = accountLogin();
         console.log('userId :', userId)
@@ -29,6 +31,7 @@ import { removeWish } from './../api/backend/wish';
             if(res.status === 200 && res.data) {
                 console.log('Données:', res.data);
                 setCurrentWish(res.data);
+               
             }
         }).catch((error)=>console.log('Get wishes error !'));
     };
@@ -43,15 +46,16 @@ import { removeWish } from './../api/backend/wish';
             removeWish(currentWish.userId, values).then(res => {
                 if(res.status === 201) {
                     console.log('data registred :', res.data);  
-                    setCurrentWish(res.data);    
+                    loadWish();  
                 }
             }).catch((error)=>console.log('Get account error !')); 
         }
-  
+
 
     return (
         <div id="container-product">ici
             {currentWish!==null ? <ListeEnvies submit={handleWish} errorLog={errorLog} currentWish={currentWish} setCurrentWish={setCurrentWish} />: <Loader/>}
+            
         </div>
     );
 };

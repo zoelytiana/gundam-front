@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { URL_PANIER } from './../../shared/constants/urls/urlConstants';
 import heart from "./../../assets/images/heart.png";
+import heartSolid from "./../../assets/images/heart-solid.svg";
 import stars from "./../../assets/images/stars.png";
-import { putWish } from '../../api/backend/wish';
+import { putWish, existWish, removeWish } from '../../api/backend/wish';
 import { Formik, Form, Field } from 'formik';
 import { accountLogin} from './../../shared/services/accountServices';
 import { URL_ENVIE } from './../../shared/constants/urls/urlConstants';
-//import ModalAddWish from './../account/ModalAddWish'
+
 
 const DetailItem = ({ gundam }) => {
+    const userId = accountLogin();
+
+    const [checkWish, setCheckWish] = useState(false);
+    
+    const data = {
+        "wish": gundam._id
+    }
+    console.log('wish to check', data)
+
+    existWish(userId, data).then(res => {
+    console.log('setCheckWish', res.data)
+    setCheckWish(res.data);
+    })
 
     const addWish = (id)=>{
-        console.log('id',id)
-        const userId = accountLogin();
+        console.log('id',id)       
         const data = 
         {
             "wishDetail": {"_id": id}
@@ -21,12 +34,28 @@ const DetailItem = ({ gundam }) => {
           console.log('data to wish',data)
         putWish(userId, data).then(res => {
             if(res.status === 201 && res.data) {
-                console.log('Données:', res.data);
-                //const toggleModal = true;
-                history.push(URL_ENVIE)
+                console.log('Data update in wish:', res.data);
+                setCheckWish(true)
+                //history.push(URL_ENVIE)
             }
-        }).catch((error)=>console.log('Get wishes error !'));
+        }).catch((error)=>console.log('Put wishes error !'));
     }
+
+    const deletetoWish = (id)=>{
+        console.log('id',id)      
+        const data = 
+        {
+            "_id": id
+          }
+          console.log('data to wish',data)
+        removeWish(userId, data).then(res => {
+            if(res.status === 201) {
+                console.log('data registred :', res.data);  
+                setCheckWish(false);
+            }
+        }).catch((error)=>console.log('Get account error !')); 
+    }
+
     return (
         <div className="flex flex-col items-center my-40">
             <div className="flex flex-col items-center md:flex md:flex-row md:justify-around">
@@ -37,7 +66,10 @@ const DetailItem = ({ gundam }) => {
                 <div className="flex flex-col items-center justify-center bg-white p-8 rounded text-center md:w-2/5 w-4/5">
                     <h1 className="m-4">{gundam.productName}</h1>
                     <h2 className="font-thin">{gundam.productPrice}€</h2>
-                    <img className="m-4" src={heart} alt="heart logo" />
+                  
+                    { checkWish === false ? <img className="m-4 hover:h-20 hover:cursor-pointer" id="imgHeart" src={heart} alt="Like" onClick={()=>addWish(gundam._id)} /> : <img className="m-4 w-20" src={heartSolid} alt="Dislike" onClick={()=>deletetoWish(gundam._id)}/>}
+                    
+                    
                     <div className="grid grid-cols-3 items-center">
                         <div className="btn-form" >
                             <p className="btn-form-text">En stock</p>
