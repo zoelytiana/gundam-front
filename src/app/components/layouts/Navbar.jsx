@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { URL_HOME, URL_LOGIN, URL_REGISTER, URL_BOUTIQUE, URL_PROMOTION, URL_ENVIE, URL_PRESENTATION, URL_CONTACT, URL_ACCOUNT } from './../../shared/constants/urls/urlConstants';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsLogged, signOut } from './../../shared/redux-store/authenticationSlice'; ''
-import logo from './../../assets/images/gundam_logo_v2.png'
+import logo from './../../assets/images/gundam_logo_v3.png'
 import cart from './../../assets/images/shopping-cart-solid.svg'
 import search from './../../assets/images/search-solid.svg'
 
