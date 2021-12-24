@@ -1,3 +1,4 @@
+
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
@@ -18,6 +19,9 @@ module.exports = {
         secondary: {
           '100': '#F5F5F5',
         }
+      },
+      backgroundImage: {
+        'home-first' : "url('./src/app/assets/images/home-first.png')"        
       }
     }
   },
