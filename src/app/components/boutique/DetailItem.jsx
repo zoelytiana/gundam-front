@@ -11,55 +11,72 @@ import { URL_ENVIE } from './../../shared/constants/urls/urlConstants';
 //import { configureStore } from '@reduxjs/toolkit'
 import { store } from '../../shared/redux-store/store';
 import { addProduct, deleteProduct } from '../../shared/redux-store/productSlice';
+import { useSelector} from 'react-redux';
+import { selectIsLogged} from './../../shared/redux-store/authenticationSlice'; 
 
 
 const DetailItem = ({ gundam }) => {
-    const userId = accountLogin();
-
-
+    const userId = null;
     const [checkWish, setCheckWish] = useState(false);
+
+    const isLogged = useSelector(selectIsLogged)
+    console.log('islogged :',isLogged)
+
+    //check if wish is already exist
+    if(isLogged){
+        userId = accountLogin()
+        const data = {
+            "wish": gundam._id
+        }
+        console.log('wish to check', data)
     
-    const data = {
-        "wish": gundam._id
+        existWish(userId, data).then(res => {
+        console.log('setCheckWish', res.data)
+        setCheckWish(res.data);
+        })
+
+        const addWish = (id)=>{
+            console.log('id',id)       
+            const data = 
+            {
+                "wishDetail": {"_id": id}
+              }
+              console.log('data to wish',data)
+            putWish(userId, data).then(res => {
+                if(res.status === 201 && res.data) {
+                    console.log('Data update in wish:', res.data);
+                    setCheckWish(true)
+                    //history.push(URL_ENVIE)
+                }
+            }).catch((error)=>console.log('Put wishes error !'));
+        }
+    
+        const deletetoWish = (id)=>{
+            console.log('id',id)      
+            const data = 
+            {
+                "_id": id
+              }
+              console.log('data to wish',data)
+            removeWish(userId, data).then(res => {
+                if(res.status === 201) {
+                    console.log('data registred :', res.data);  
+                    setCheckWish(false);
+                }
+            }).catch((error)=>console.log('Get account error !')); 
+        }
+    }else{//ici je ne comprend si l'utilisateur n'est pas connecté, il utilise les fontions suivantes alors qu'il affiche tjr une erreur
+        const addWish = (id)=>{
+            console.log('id',id)     
+            document.getElementById('error').classList.toggle("invisible");
+        }
+    
+        const deletetoWish = (id)=>{
+            console.log('id',id) 
+            document.getElementById('error').classList.toggle("invisible");     
+        }
     }
-    console.log('wish to check', data)
-
-    existWish(userId, data).then(res => {
-    console.log('setCheckWish', res.data)
-    setCheckWish(res.data);
-    })
-
-    const addWish = (id)=>{
-        console.log('id',id)       
-        const data = 
-        {
-            "wishDetail": {"_id": id}
-          }
-          console.log('data to wish',data)
-        putWish(userId, data).then(res => {
-            if(res.status === 201 && res.data) {
-                console.log('Data update in wish:', res.data);
-                setCheckWish(true)
-                //history.push(URL_ENVIE)
-            }
-        }).catch((error)=>console.log('Put wishes error !'));
-    }
-
-    const deletetoWish = (id)=>{
-        console.log('id',id)      
-        const data = 
-        {
-            "_id": id
-          }
-          console.log('data to wish',data)
-        removeWish(userId, data).then(res => {
-            if(res.status === 201) {
-                console.log('data registred :', res.data);  
-                setCheckWish(false);
-            }
-        }).catch((error)=>console.log('Get account error !')); 
-    }
-
+    
      // Can still subscribe to the store
     //store.subscribe(() => console.log(store.getState()))
 
@@ -75,6 +92,11 @@ const DetailItem = ({ gundam }) => {
           // Still pass action objects to `dispatch`, but they're created for us
           store.dispatch(addProduct(data))
           console.log('store',store.getState())
+          const obj = store.getState()
+          console.log('produit',obj.product)
+          //localstorage
+
+          localStorage.setItem('Cart', JSON.stringify(obj.product));
     }
 
     return (
@@ -89,7 +111,7 @@ const DetailItem = ({ gundam }) => {
                     <h2 className="font-thin">{gundam.productPrice}€</h2>
                   
                     { checkWish === false ? <img className="m-4 hover:h-20 hover:cursor-pointer" id="imgHeart" src={heart} alt="Like" onClick={()=>addWish(gundam._id)} /> : <img className="m-4 w-20" src={heartSolid} alt="Dislike" onClick={()=>deletetoWish(gundam._id)}/>}
-                    
+                    <div id='error' className='error invisible'>Pas authentifié</div>
                     
                     <div className="grid grid-cols-3 items-center">
                         <div className="btn-form" >

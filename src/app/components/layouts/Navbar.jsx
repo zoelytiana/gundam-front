@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { URL_HOME, URL_LOGIN, URL_REGISTER, URL_BOUTIQUE, URL_PROMOTION, URL_ENVIE, URL_PRESENTATION, URL_CONTACT, URL_ACCOUNT } from './../../shared/constants/urls/urlConstants';
+import { URL_HOME, URL_LOGIN, URL_REGISTER, URL_BOUTIQUE, URL_PROMOTION, URL_ENVIE, URL_PRESENTATION, URL_CONTACT, URL_ACCOUNT, URL_PANIER } from './../../shared/constants/urls/urlConstants';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsLogged, signOut } from './../../shared/redux-store/authenticationSlice'; ''
 import logo from './../../assets/images/gundam_logo_v3.png'
@@ -25,7 +25,9 @@ const Navbar = () => {
                             </div>
                     </div>
                         <div className="flex flex-row-reverse space-x-4 space-x-reverse">
-                            <img className="w-10" src={cart} alt = "Cart"/>
+                            <Link to={URL_PANIER}>
+                                <img className="w-10" src={cart} alt = "Cart"/>
+                            </Link>
                             <img className="w-10" src={search} alt ="Search"/>
                         </div>
                     </div>

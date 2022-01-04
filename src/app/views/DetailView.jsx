@@ -18,6 +18,7 @@ const DetailView = () => {
     }, []); 
     return (
         <div className="container">
+            <div>Detail</div>
             <DetailItem gundam={gundam} />
         </div>
     )
