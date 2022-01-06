@@ -3,6 +3,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import BoutiqueItem from '../components/boutique/BoutiqueItem';
 import Pagination from '../components/layouts/Pagination';
+import SideBar from '../components/boutique/SideBar'
 
 const BoutiqueView = () => {
     const [gundams, setGundams] = useState([]);
@@ -30,13 +31,18 @@ const BoutiqueView = () => {
 
     return (
         <div className="container">
-            <div>
-                <BoutiqueItem gundams={currentProducts} loading={loading}/>
-                <Pagination 
-                products={products} 
-                totalPage={gundams.length} 
-                paginate={paginate}
-                />
+            <div className='flex'>
+                <div>
+                    <SideBar />
+                </div>
+                <div>
+                    <BoutiqueItem gundams={currentProducts} loading={loading}/>
+                    <Pagination 
+                    products={products} 
+                    totalPage={gundams.length} 
+                    paginate={paginate}
+                    />
+                </div>        
             </div>
         </div>
         

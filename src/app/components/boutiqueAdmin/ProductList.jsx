@@ -2,13 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { URL_ADMIN_ADDPRODUCT } from './../../shared/constants/urls/urlConstants';
-import { useDispatch } from "react-redux";
-import { deleteProduct } from '../../shared/redux-store/productSlice';
+import { URL_ADMIN_ADDPRODUCT, URL_ADMIN_UPDATEPRODUCT } from './../../shared/constants/urls/urlConstants';
+import { useDispatch, useSelector } from "react-redux";
+import { deleteProductAsync, selectProducts, setProducts } from '../../shared/redux-store/productSlice';
 
-function ProductList({id}) {
+function ProductList() {
 
-    const [products, setProducts] = useState([]);
+    const products = useSelector(selectProducts);
     const [loading, setLoading] = useState(true);
 
     const dispatch = useDispatch()
@@ -16,15 +16,17 @@ function ProductList({id}) {
     useEffect(() => {
         const fetchProduct = async () => {
             const res = await axios.get('http://localhost:4000/products');
-            setProducts(res.data);
+            dispatch(
+                setProducts(res.data)
+            )
             setLoading(false)
         }
         fetchProduct()
     }, []);
 
-    const handleDeleteClick = () => {
+    const handleDelete = (id) => {
         dispatch(
-            deleteProduct({ id: id })
+            deleteProductAsync(id)
         )
     }
 
@@ -49,15 +51,17 @@ function ProductList({id}) {
                         <tbody>
                             {products.map(product => {
                                 return (
-                                    <tr>
+                                    <tr key={product._id}>
                                         <td><img src={product.productPicHigh} className='md:w-40 md:h-40 w-28 h-28 object-cover' /></td>
                                         <td className="p-1 text-center">{product.productName}</td>
                                         <td>{product.productPrice}€</td>
                                         <td className="p-1 md:p-11">
-                                            <button className='bg-primary-100 p-1 rounded text-white'>Modifier</button>
+                                            <Link to={URL_ADMIN_UPDATEPRODUCT + `/${product._id}`}>
+                                                <button className='bg-primary-100 p-1 rounded text-white'>Modifier</button>
+                                            </Link>
                                         </td>
                                         <td className="p-1 md:p-4">
-                                            <button onClick={handleDeleteClick} className='bg-primary-100 p-1 rounded text-white'>Supprimer</button>
+                                            <button onClick={() => handleDelete(product._id)} className='bg-primary-100 p-1 rounded text-white'>Supprimer</button>
                                         </td>
                                     </tr>
                                 )

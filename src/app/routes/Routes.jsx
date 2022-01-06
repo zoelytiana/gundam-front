@@ -7,6 +7,7 @@ import {
             URL_ADMIN_HOME, 
             URL_ADMIN_PRODUCTLIST, 
             URL_ADMIN_ADDPRODUCT, 
+            URL_ADMIN_UPDATEPRODUCT, 
             URL_BOUTIQUE, 
             URL_PROMOTION, 
             URL_DETAIL, 
@@ -64,6 +65,7 @@ import { customHistory } from '../shared/services/historyServices';
 import AdminHomeView from '../views/admin/AdminHomeView';
 import AdminProductListView from '../views/admin/AdminProductListView';
 import AdminAddProductView from '../views/admin/AdminAddProductView';
+import UpdateProduct from '../components/boutiqueAdmin/UpdateProduct';
 import { ROLE_ADMIN, ROLE_USER } from '../shared/constants/rolesConstant';
 import { PrivateRoute } from '../shared/components/utils-components/PrivateRoute';
 
@@ -112,6 +114,7 @@ const Routes = () => {
             
             <Route path={URL_ADMIN_PRODUCTLIST} component={AdminProductListView} />
             <Route path={URL_ADMIN_ADDPRODUCT} component={AdminAddProductView} />
+            <Route path={URL_ADMIN_UPDATEPRODUCT + "/:_id"} component={UpdateProduct} />
         </Switch>
     );
 };
