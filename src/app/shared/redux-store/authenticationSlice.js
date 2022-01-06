@@ -15,6 +15,7 @@ export const authenticationSlice = createSlice({
     initialState,
     reducers: {
         signIn: (state, action) => {
+            console.log("action",action)
             setToken(action.payload)
             state.isLogged = true
         },

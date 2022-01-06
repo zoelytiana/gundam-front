@@ -5,45 +5,58 @@ import mastercard from "./../../assets/images/mode-de-paiement_0002_Calque1.jpg"
 import info from "./../../assets/images/icon_info.png";
 
 function PanierItem(props) {
+    console.log("prop gundamArray", props.gundams)
+    let ssTotal = 0
+    let total = 0
+    let livraison = 20
+    let tva = 0
     return (
-        <div>
-            <h3>Mon panier ( 3 articles )</h3>
+        <div className=" my-40 max-w-screen-xl mx-auto">
+            <h3>Mon panier a ( {props.gundams.length} ) produit(s)</h3>
             <div className="lg:flex justify-around">
                 <div>
-                    {props.gundams.map(gundam => {
+                    {props.gundams.map((gundam, index) => {
+                       
+                        ssTotal = ssTotal + parseFloat(gundam.productPrice)
+                        tva = ssTotal * 0.20
+                        if (ssTotal>150) livraison = 0
+                        console.log('ssTotal',ssTotal)
                         return (
                             <div className="xl:flex lg:justify-center lg:items-center bg-white rounded p-8 m-11">
-                                <img src={gundam.image} alt={gundam.name} />
-                                <div className="p-0.5">
-                                    <h4>{gundam.name}</h4>
-                                    <p>{gundam.description}</p>
+                                <div key={index} className="p-0.5">
+                                    <p>Produit {index+1} : {gundam.id}</p>
+                                    <h4>{gundam.productName}titre</h4>
+                                    <p>{gundam.productPrice}</p>
                                 </div>
                             </div>
-                        )
+                        )  
                     })}
+                    
                 </div>
                 <div className="bg-white rounded p-8 m-11">
                     <p className="bg-primary-200 p-8">Pour tout commande supérieur à 150€, vous pouvez bénéficier de la livraison gratuite</p>
                     <h3 className="mt-4 mb-4">Total</h3>
                     <div className="flex justify-between mb-8">
                         <p>Sous total</p>
-                        <p>450€</p>
+                        <p>{ssTotal} €</p>
                     </div>
                     <div className="flex justify-between mb-2">
-                        <p>livraison</p>
-                        <p>0€</p>
+                        <p>Livraison :</p>
+                        <p>{livraison} €</p>
                     </div>
                     <hr />
                     <div className="flex justify-between mt-4">
-                        <p>Total TVA incluse</p>
-                        <p>450€</p>
+                        <p>Total TVA incluse </p>
+                        <p>{ssTotal + tva} €</p>
                     </div>
-                    <button className="btn-form m-4">
-                        <p className="btn-form-text w-28">Procéder au paiment</p>
-                    </button>
-                    <button className="btn-form m-4">
-                        <p className="btn-form-text w-28">Continuer mes achats</p>
-                    </button>
+                    <div className="flex px-20 w-full">
+                        <button className="btn-form m-4">
+                            <p className="btn-form-text w-28">Procéder au paiement</p>
+                        </button>
+                        <button className="btn-form m-4">
+                            <p className="btn-form-text w-28">Continuer mes achats</p>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className="flex ml-8">
