@@ -10,6 +10,7 @@ const BoutiqueView = () => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [products, setProducts] = useState(9);
+    
     useEffect(() => {
         const fetchProduct = async () => {
             setLoading(true);

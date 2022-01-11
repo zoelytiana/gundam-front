@@ -108,7 +108,7 @@ const Routes = () => {
             <Route path={URL_VALIDATION} component={ValidationView} />
             <Route path={URL_CLAIM} component={ClaimView} />
 
-            <Route path={URL_LOGIN} component={LoginView} />
+            <Route exact path={URL_LOGIN} component={LoginView} />
             <Route path={URL_REGISTER} component={RegisterView} />
             <Route path={URL_ACCOUNT} component={AccountView} />
             

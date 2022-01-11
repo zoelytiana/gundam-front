@@ -16,7 +16,7 @@ import { selectIsLogged} from './../../shared/redux-store/authenticationSlice';
 
 
 const DetailItem = ({ gundam }) => {
-    const userId = null;
+    let userId = null;
     const [checkWish, setCheckWish] = useState(false);
 
     const isLogged = useSelector(selectIsLogged)
@@ -65,7 +65,8 @@ const DetailItem = ({ gundam }) => {
                 }
             }).catch((error)=>console.log('Get account error !')); 
         }
-    }else{//ici je ne comprend si l'utilisateur n'est pas connecté, il utilise les fontions suivantes alors qu'il affiche tjr une erreur
+    }
+    else{//ici je ne comprend si l'utilisateur n'est pas connecté, il utilise les fontions suivantes alors qu'il affiche tjr une erreur
         const addWish = (id)=>{
             console.log('id',id)     
             document.getElementById('error').classList.toggle("invisible");

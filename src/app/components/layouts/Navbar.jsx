@@ -9,13 +9,16 @@ import search from './../../assets/images/search-solid.svg'
 
 
 const Navbar = () => {
+    const panier = JSON.parse(localStorage.getItem('Cart'));
+    console.log("panier", panier)
     return (
         <nav className="top-0 fixed z-50 w-full bg-primary-100 shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center md:space-x-10">
                     <Link to={URL_HOME}>
                         <div className="logo">
-                            <img src={logo} alt ="gundam"/>
+                            
+                            <img className="w-auto xl:w-3/4 lg:w-1/2 md:w-1/4 sm:w-1/6" src={logo} alt ="gundam"/>
                         </div>
                     </Link>
                     <div className=" h-40 flex flex-col justify-between">
@@ -26,9 +29,13 @@ const Navbar = () => {
                     </div>
                         <div className="flex flex-row-reverse space-x-4 space-x-reverse">
                             <Link to={URL_PANIER}>
-                                <img className="w-10" src={cart} alt = "Cart"/>
+                                <div className="text-white h-4 text-center text-xs">{panier.length} produit(s)</div>
+                                <div className=""><img className="w-10 m-auto" src={cart} alt = "Cart"/></div>
                             </Link>
-                            <img className="w-10" src={search} alt ="Search"/>
+                            <Link to={URL_PANIER}>
+                                <div className="text-white h-4"></div>
+                                <img className="w-10" src={search} alt ="Search"/>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -41,7 +48,7 @@ const Navbar = () => {
                     </div>
 
                     
-                    <div className="w-1/2 block flex justify-end flex-1 lg:w-0">
+                    <div className="w-1/2 flex justify-end flex-1 lg:w-0">
                         <MenuContact/>
                     </div>
                 </div>
@@ -68,7 +75,7 @@ const MenuBtn = () => {
                 </button>
             </div>
 
-            <div className=" flex-grow lg:flex lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+            <div className=" flex-grow lg:flex lg:w-auto hidden pt-6 lg:pt-0" id="nav-content">
                 <ul className="list-reset lg:flex flex-1">
                     <li className="mr-3">
                     <Link to={URL_PRESENTATION}>
@@ -120,7 +127,7 @@ const ConnectionBtn = () => {
                 </div>
             </Link>
             <Link to={URL_REGISTER}>
-                <button className="ml-8 btn btn-green">
+                <button className="link text-white ml-8">
                     Sign up
                 </button>
             </Link>
@@ -147,7 +154,7 @@ const MenuContact = () => {
                 </button>
             </div>
 
-            <div className="w-full flex-grow lg:flex lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content2">
+            <div className="w-full flex-grow lg:flex lg:w-auto hidden pt-6 lg:pt-0" id="nav-content2">
                 <ul className="list-reset lg:flex flex-1">
                 <li className="mr-3">
                 <Link to={URL_ACCOUNT}>
