@@ -3,7 +3,7 @@ import React from 'react'
 function Modal({toggleModal, setToggleModal}) {
     return (
         toggleModal && (
-            <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="absolute z-10 inset-0 overflow-y-auto md:top-44 lg:top-44 sm:top-0" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                 <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
                     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>

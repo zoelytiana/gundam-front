@@ -9,7 +9,8 @@ const PanierView = () => {
     return (
         <div className="container">
             <div>
-            <PanierItem gundams={gundamArray}/>
+                <h3>Mon Panier</h3>
+            {gundamArray !== null ?<PanierItem gundams={gundamArray}/> : <div className=" my-40 max-w-screen-xl mx-auto">Panier vide</div>}
             </div>
         </div>
     )
