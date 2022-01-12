@@ -10,7 +10,7 @@ import { accountLogin} from './../../shared/services/accountServices';
 import { URL_ENVIE } from './../../shared/constants/urls/urlConstants';
 //import { configureStore } from '@reduxjs/toolkit'
 import { store } from '../../shared/redux-store/store';
-import { addProduct, deleteProduct } from '../../shared/redux-store/productSlice';
+import { addProduct, deleteProduct } from '../../shared/redux-store/cartSlice';
 import { useSelector} from 'react-redux';
 import { selectIsLogged} from './../../shared/redux-store/authenticationSlice'; 
 
