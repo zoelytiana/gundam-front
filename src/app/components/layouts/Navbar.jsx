@@ -10,7 +10,11 @@ import search from './../../assets/images/search-solid.svg'
 
 const Navbar = () => {
     const panier = JSON.parse(localStorage.getItem('Cart'));
+    let nbProduit = 0
     console.log("panier", panier)
+    if (panier!==null){
+        nbProduit = panier.length
+    }
     return (
         <nav className="top-0 fixed z-50 w-full bg-primary-100 shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -29,7 +33,7 @@ const Navbar = () => {
                     </div>
                         <div className="flex flex-row-reverse space-x-4 space-x-reverse">
                             <Link to={URL_PANIER}>
-                                <div className="text-white h-4 text-center text-xs">{panier.length} produit(s)</div>
+                                <div className="text-white h-4 text-center text-xs">{nbProduit} produit(s)</div>
                                 <div className=""><img className="w-10 m-auto" src={cart} alt = "Cart"/></div>
                             </Link>
                             <Link to={URL_PANIER}>
