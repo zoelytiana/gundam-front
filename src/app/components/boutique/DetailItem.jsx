@@ -10,7 +10,7 @@ import { accountLogin} from './../../shared/services/accountServices';
 import { URL_ENVIE } from './../../shared/constants/urls/urlConstants';
 //import { configureStore } from '@reduxjs/toolkit'
 import { store } from '../../shared/redux-store/store';
-import { addProduct, deleteProduct } from '../../shared/redux-store/cartSlice';
+import { addProduct, deleteProduct } from '../../shared/redux-store/productSlice';
 import { useSelector} from 'react-redux';
 import { selectIsLogged} from './../../shared/redux-store/authenticationSlice'; 
 
@@ -23,73 +23,60 @@ const DetailItem = ({ gundam }) => {
     console.log('islogged :',isLogged)
 
     //check if wish is already exist
+    if(isLogged){
+        userId = accountLogin()
+        const data = {
+            "wish": gundam._id
+        }
+        console.log('wish to check', data)
+    
+        existWish(userId, data).then(res => {
+        console.log('setCheckWish', res.data)
+        setCheckWish(res.data);
+        })
 
-
-const addWish = (id)=>{
-    console.log('id',id)       
-    const data = 
-    {
-        "wishDetail": {"_id": id}
-    }
-        console.log('data to wish',data)
-        if(isLogged){
-            userId = accountLogin()
-            const data = {
-                    "wish": gundam._id
-                }
-                console.log('wish to check', data)
-            
-                existWish(userId, data).then(res => {
-                console.log('setCheckWish', res.data)
-                setCheckWish(res.data);
-                })
-                    putWish(userId, data).then(res => {
-                        if(res.status === 201 && res.data) {
-                            console.log('Data update in wish:', res.data);
-                            setCheckWish(true)
-                            //history.push(URL_ENVIE)
-                        }
-                    }).catch((error)=>console.log('Put wishes error !'));
+        const addWish = (id)=>{
+            console.log('id',id)       
+            const data = 
+            {
+                "wishDetail": {"_id": id}
               }
-              else{//ici je ne comprend si l'utilisateur n'est pas connecté, il utilise les fontions suivantes alors qu'il affiche tjr une erreur
-                    console.log('id',id)     
-                    document.getElementById('error').classList.toggle("invisible")          
+              console.log('data to wish',data)
+            putWish(userId, data).then(res => {
+                if(res.status === 201 && res.data) {
+                    console.log('Data update in wish:', res.data);
+                    setCheckWish(true)
+                    //history.push(URL_ENVIE)
+                }
+            }).catch((error)=>console.log('Put wishes error !'));
         }
-}
     
-const deletetoWish = (id)=>{
-    console.log('id',id)      
-    const data = 
-    {
-            "_id": id
+        const deletetoWish = (id)=>{
+            console.log('id',id)      
+            const data = 
+            {
+                "_id": id
+              }
+              console.log('data to wish',data)
+            removeWish(userId, data).then(res => {
+                if(res.status === 201) {
+                    console.log('data registred :', res.data);  
+                    setCheckWish(false);
+                }
+            }).catch((error)=>console.log('Get account error !')); 
+        }
     }
-    console.log('data to wish',data)
-        if(isLogged){
-            userId = accountLogin()
-            const data = {
-                    "wish": gundam._id
-            }
-                console.log('wish to check', data)
-            
-                existWish(userId, data).then(res => {
-                console.log('setCheckWish', res.data)
-                setCheckWish(res.data);
-                })
-                    removeWish(userId, data).then(res => {
-                        if(res.status === 201) {
-                            console.log('data registred :', res.data);  
-                            setCheckWish(false);
-                        }
-                    }).catch((error)=>console.log('Get account error !')); 
-        }else{
-              
-            console.log('id',id) 
-            document.getElementById('error').classList.toggle("invisible"); 
+    else{//ici je ne comprend si l'utilisateur n'est pas connecté, il utilise les fontions suivantes alors qu'il affiche tjr une erreur
+        const addWish = (id)=>{
+            console.log('id',id)     
+            document.getElementById('error').classList.toggle("invisible");
         }
     
-}
-
-    
+        const deletetoWish = (id)=>{
+            console.log('id',id) 
+            document.getElementById('error').classList.toggle("invisible");     
+        }
+    }
     
      // Can still subscribe to the store
     //store.subscribe(() => console.log(store.getState()))

@@ -54,40 +54,23 @@ export const deleteProductAsync = createAsyncThunk(
 
 const productSlice = createSlice({
     name: "Products",
-    initialState: {products: []},
+    //initialState: {products: []},
+    initialState:[],
     reducers: {
         setProducts: (state, action) => {
             state.products = action.payload
         }, 
-        // addProduct: (state, action) => {
-        //     const newTodo = {
-        //         id: action.payload.id,
-        //         productName: action.payload.productName,
-        //         productPrice: action.payload.productPrice,
-        //         productWeight: action.payload.productWeight,
-        //         productShortDesc: action.payload.productShortDesc,
-        //         productLongDesc: action.payload.productLongDesc,
-        //         productPicHigh: action.payload.productPicHigh,
-        //         productPic: action.payload.productPic,
-        //         productUnderCategory: action.payload.productUnderCategory,
-        //         productUpdateDate: action.payload.productUpdateDate,
-        //         productCreateDate: action.payload.productCreateDate,
-        //         productStock: action.payload.productStock,
-        //         productLocation: action.payload.productLocation,
-        //         productDiscount: action.payload.productDiscount,
-        //         textilSize: action.payload.textilSize,
-        //         productSize: action.payload.productSize,
-        //         productHeight: action.payload.productHeight,
-        //         productMaterial: action.payload.productMaterial,
-        //         productAgeRequired: action.payload.productAgeRequired,
-        //         productColor: action.payload.productColor,
-        //         productManufacturer: action.payload.productManufacturers,
-        //     };
-        //     state.push(newTodo);
-        // },
-        // deleteProduct: (state, action) => {
-        //     return state.filter((product) => product.id !== action.payload.id)
-        // }
+        addProduct: (state, action) => {
+            const newTodo = {
+                id: action.payload.id,
+                productName: action.payload.productName,
+                productPrice: action.payload.productPrice,
+            };
+            state.push(newTodo);
+        },
+        deleteProduct: (state, action) => {
+            return state.filter((product) => product.id !== action.payload.id)
+        }
     },
     extraReducers: {
         [addProductAsync.fulfilled]: (state, action) => {
