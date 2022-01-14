@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import Promotion from '../components/boutique/Promotion';
 import NewProduct from '../components/boutique/NewProduct';
 import BestSeller from '../components/boutique/BestSeller';
-import Bas_remove from '../components/account/Bas_remove'
+import Bas_remove from '../components/account/Bas_remove';
+import { getProductDiscount } from './../api/backend/product';
+
 
 const gundamArray = [
     {
@@ -26,10 +28,26 @@ const gundamArray = [
 ]
 
 const HomeView = () => {
+
+    const [currentDiscount, setCurrentDiscount] = useState(null);
+
+
+    useEffect(() =>{
+        loadDiscount();
+    }, []);
+
+    const loadDiscount = () => {
+        getProductDiscount(20).then(res => {
+            if(res.status === 200 && res.data) {
+                console.log('Données:', res.data);
+                setCurrentDiscount(res.data);   
+            }
+        }).catch((error)=>console.log('Get wishes error !'));
+    };
     return (
         <div>
-
-            <Promotion gundams={gundamArray}/>
+            <div>Totre</div>
+            {currentDiscount!==null ? <Promotion gundams={currentDiscount}/> : <div>rien</div>}
             <NewProduct gundams={gundamArray}/>
             <BestSeller gundams={gundamArray}/>
             <Bas_remove/>
