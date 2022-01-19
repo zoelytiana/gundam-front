@@ -19,6 +19,9 @@ const DetailItem = ({ gundam }) => {
     let userId = null;
     const [checkWish, setCheckWish] = useState(false);
 
+    const initialProductNumber = 1;
+    const [productNumber, setProductNumber] = useState(initialProductNumber);
+
     const isLogged = useSelector(selectIsLogged)
     console.log('islogged :',isLogged)
 
@@ -81,23 +84,61 @@ const DetailItem = ({ gundam }) => {
      // Can still subscribe to the store
     //store.subscribe(() => console.log(store.getState()))
 
-    const addToCart = (id, productName, productPrice ) =>{
+    const addToCart = (id, productName, productPrice, productNumber ) =>{
    
-        const data = {
+        let data = {
                 id: id,
                 productName: productName,
-                productPrice: productPrice
+                productPrice: productPrice,
+                productNumber: productNumber
             };
 
           console.log('data',data)
-          // Still pass action objects to `dispatch`, but they're created for us
-          store.dispatch(addProduct(data))
-          console.log('store',store.getState())
-          const obj = store.getState()
-          console.log('produit',obj.product)
-          //localstorage
 
-          localStorage.setItem('Cart', JSON.stringify(obj.product));
+          //tester si le produit n'est pas encore dans la liste
+          let exist = false
+          let nb = 0;
+          const obj = store.getState()
+          obj.product.map((product, index) => {
+            if (product.id === data.id){
+                exist = true
+                nb = product.productNumber
+            }
+          })
+          console.log('exist', exist)
+          // Still pass action objects to `dispatch`, but they're created for us
+          if (exist === false){
+            console.log('data dans add',data)
+            store.dispatch(addProduct(data))
+            console.log('store not exist',store.getState())
+          }else{
+            store.dispatch(deleteProduct(data.id))
+            console.log('store exist',store.getState())
+            data = {
+                id: id,
+                productName: productName,
+                productPrice: productPrice,
+                productNumber: productNumber+nb
+            };
+            store.dispatch(addProduct(data))
+          }
+          
+          //localstorage
+          localStorage.setItem('Cart', JSON.stringify(store.getState().product));
+    }
+
+    const addProductNumber = ()=>{
+        let number = document.getElementById('productNumber').innerText;
+        console.log('number',number)
+        number++
+        setProductNumber(number)
+    }
+
+    const minProductNumber = ()=>{
+        let number = document.getElementById('productNumber').innerText;
+        console.log('number',number)
+        if (number>1) number--
+        setProductNumber(number)
     }
 
     return (
@@ -124,12 +165,12 @@ const DetailItem = ({ gundam }) => {
                     <p className="m-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio aspernatur commodi numquam quis id sunt totam labore enim laboriosam. Ex at pariatur velit incidunt nulla maxime sit rerum impedit consectetur!</p>
                     <div className="flex items-center">
                         <div className="flex items-center">
-                            <h3 className="m-2">-</h3>
-                            <h3 className="border-solid border-black border-2 rounded p-2">1</h3>
-                            <h3 className="m-2">+</h3>
+                            <h3 className="m-2" onClick={()=>minProductNumber()}>-</h3>
+                            <h3 className="border-solid border-black border-2 rounded p-2" id="productNumber">{productNumber}</h3>
+                            <h3 className="m-2" onClick={()=>addProductNumber()}>+</h3>
                         </div>
                        
-                            <button className="btn-form" onClick={()=>addToCart(gundam._id,gundam.productName,gundam.productPrice)}>
+                            <button className="btn-form" onClick={()=>addToCart(gundam._id,gundam.productName,gundam.productPrice, productNumber)}>
                                 <p className="btn-form-text">Ajouter au panier</p>
                             </button>
                        

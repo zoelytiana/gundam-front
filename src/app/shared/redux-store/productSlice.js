@@ -65,6 +65,7 @@ const productSlice = createSlice({
                 id: action.payload.id,
                 productName: action.payload.productName,
                 productPrice: action.payload.productPrice,
+                productNumber: action.payload.productNumber
             };
             state.push(newTodo);
         },
